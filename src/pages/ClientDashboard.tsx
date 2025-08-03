@@ -97,7 +97,7 @@ export default function ClientDashboard() {
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">LA</span>
             </div>
-            <span className="font-semibold text-lg">LabelAfrica</span>
+                            <span className="font-semibold text-lg">Label</span>
           </div>
         </div>
 
@@ -178,7 +178,7 @@ export default function ClientDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <div className="text-2xl font-bold">1</div>
+                  <div className="text-2xl font-light">1</div>
                   <div className="text-sm text-muted-foreground">Agricultural Dataset</div>
                   <div className="flex items-center space-x-2 text-xs">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -197,7 +197,7 @@ export default function ClientDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <div className="text-2xl font-bold">1</div>
+                  <div className="text-2xl font-light">1</div>
                   <div className="text-sm text-muted-foreground">Wildlife Classification</div>
                   <div className="flex items-center space-x-2 text-xs">
                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
@@ -216,7 +216,7 @@ export default function ClientDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <div className="text-2xl font-bold">1</div>
+                  <div className="text-2xl font-light">1</div>
                   <div className="text-sm text-muted-foreground">Text Sentiment Analysis</div>
                   <div className="flex items-center space-x-2 text-xs">
                     <div className="w-2 h-2 bg-orange-500 rounded-full"></div>

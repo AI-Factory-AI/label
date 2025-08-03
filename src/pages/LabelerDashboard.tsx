@@ -119,7 +119,7 @@ export default function LabelerDashboard() {
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">LA</span>
             </div>
-            <span className="font-semibold text-lg">LabelAfrica</span>
+                            <span className="font-semibold text-lg">Label</span>
           </div>
         </div>
 
@@ -167,7 +167,7 @@ export default function LabelerDashboard() {
           </div>
           <div className="flex items-center space-x-3">
             <div className="text-right">
-              <p className="text-lg font-bold">$127.50</p>
+              <p className="text-lg font-light">$127.50</p>
               <p className="text-xs text-muted-foreground">Available balance</p>
             </div>
             <Button className="bg-primary hover:bg-primary/90">
@@ -201,7 +201,7 @@ export default function LabelerDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <div className="text-2xl font-bold">$1,247.50</div>
+                  <div className="text-2xl font-light">$1,247.50</div>
                   <div className="text-sm text-muted-foreground">+12.5% from last month</div>
                   <div className="flex items-center space-x-2 text-xs">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -220,7 +220,7 @@ export default function LabelerDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <div className="text-2xl font-bold">2,847</div>
+                  <div className="text-2xl font-light">2,847</div>
                   <div className="text-sm text-muted-foreground">+18% from last month</div>
                   <div className="flex items-center space-x-2 text-xs">
                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
@@ -239,7 +239,7 @@ export default function LabelerDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <div className="text-2xl font-bold">#47</div>
+                  <div className="text-2xl font-light">#47</div>
                   <div className="text-sm text-muted-foreground">Top 5% of labelers</div>
                   <div className="flex items-center space-x-2 text-xs">
                     <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
@@ -258,7 +258,7 @@ export default function LabelerDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <div className="text-2xl font-bold">450</div>
+                  <div className="text-2xl font-light">450</div>
                   <div className="text-sm text-muted-foreground">Ready to start</div>
                   <div className="flex items-center space-x-2 text-xs">
                     <div className="w-2 h-2 bg-orange-500 rounded-full"></div>

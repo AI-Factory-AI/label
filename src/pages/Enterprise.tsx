@@ -25,7 +25,7 @@ export default function Enterprise() {
     },
     {
       icon: <Globe className="h-8 w-8" />,
-      title: "Global Scale",
+      title: "Global Reach",
       description: "Access to 50,000+ expert labelers across 54 African countries with multilingual capabilities."
     },
     {
@@ -88,7 +88,7 @@ export default function Enterprise() {
 
   const testimonials = [
     {
-      quote: "LabelAfrica's enterprise solution helped us scale our computer vision models 10x faster than our previous approach.",
+      quote: "LabelAfrica's enterprise solution helped us grow our computer vision models 10x faster than our previous approach.",
       author: "Sarah Chen",
       title: "Head of AI, TechCorp",
       company: "Fortune 500 Technology Company"
@@ -111,7 +111,7 @@ export default function Enterprise() {
           <Badge variant="outline" className="mb-6">
             Trusted by Fortune 500 Companies
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-6xl font-light mb-6">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Enterprise AI
             </span>
@@ -119,7 +119,7 @@ export default function Enterprise() {
             <span className="text-foreground">Data Solutions</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Scale your AI initiatives with enterprise-grade data labeling services. Secure, reliable, and designed for mission-critical applications.
+            Grow your AI initiatives with enterprise-grade data labeling services. Secure, reliable, and designed for mission-critical applications.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/signup">
@@ -139,7 +139,7 @@ export default function Enterprise() {
       {/* Features Grid */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Enterprise Features</h2>
+          <h2 className="text-3xl font-light text-center mb-12">Enterprise Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <Card key={index} className="text-center">
@@ -161,9 +161,9 @@ export default function Enterprise() {
       {/* Pricing Plans */}
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">Enterprise Plans</h2>
+          <h2 className="text-3xl font-light text-center mb-4">Enterprise Plans</h2>
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Flexible pricing options designed to scale with your business needs. All plans include our core enterprise features.
+            Flexible pricing options designed to grow with your business needs. All plans include our core enterprise features.
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {plans.map((plan, index) => (
@@ -176,7 +176,7 @@ export default function Enterprise() {
                 <CardHeader className="text-center">
                   <CardTitle className="text-xl">{plan.name}</CardTitle>
                   <CardDescription>{plan.description}</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">
+                  <div className="text-3xl font-light text-primary mt-4">
                     {plan.price}
                   </div>
                 </CardHeader>
@@ -204,7 +204,7 @@ export default function Enterprise() {
       {/* Testimonials */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">What Our Enterprise Clients Say</h2>
+          <h2 className="text-3xl font-light text-center mb-12">What Our Enterprise Clients Say</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
               <Card key={index}>
@@ -227,22 +227,22 @@ export default function Enterprise() {
       {/* Stats */}
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Enterprise Impact</h2>
+          <h2 className="text-3xl font-light text-center mb-12">Enterprise Impact</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">500+</div>
+              <div className="text-4xl font-light text-primary mb-2">500+</div>
               <div className="text-muted-foreground">Enterprise Clients</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">10M+</div>
+              <div className="text-4xl font-light text-primary mb-2">10M+</div>
               <div className="text-muted-foreground">Tasks Completed</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">99.5%</div>
+              <div className="text-4xl font-light text-primary mb-2">99.5%</div>
               <div className="text-muted-foreground">Accuracy Rate</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">24/7</div>
+              <div className="text-4xl font-light text-primary mb-2">24/7</div>
               <div className="text-muted-foreground">Support Available</div>
             </div>
           </div>
@@ -252,7 +252,7 @@ export default function Enterprise() {
       {/* CTA */}
       <section className="py-16 px-4">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Scale Your AI?</h2>
+          <h2 className="text-3xl font-light mb-6">Ready to Grow Your AI?</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join hundreds of enterprise clients who trust LabelAfrica with their most important AI initiatives.
           </p>

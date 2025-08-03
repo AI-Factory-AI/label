@@ -46,33 +46,35 @@ export function Footer() {
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4">
         {/* Main Footer Content */}
-        <div className="py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="py-12 sm:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-2 mb-6">
-                <div className="w-8 h-8 bg-gradient-primary rounded-md flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-sm">LA</span>
-                </div>
-                <span className="text-xl font-bold">LabelAfrica</span>
+                <img 
+                  src="https://res.cloudinary.com/ecosheane/image/upload/v1754217265/lable_z2geih.png" 
+                  alt="LabelAfrica Logo" 
+                  className="h-6 sm:h-8 w-auto"
+                />
+                <span className="text-lg sm:text-xl font-bold">Label</span>
               </div>
               
-              <p className="text-secondary-foreground/80 mb-6 leading-relaxed">
+              <p className="text-secondary-foreground/80 mb-6 leading-relaxed text-sm sm:text-base">
                 Empowering AI innovation with premium data labeling services from Africa's 
                 brightest minds. Join us in building the future of artificial intelligence.
               </p>
 
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
-                  <Mail className="w-4 h-4 text-primary" />
-                  <span className="text-sm">contact@labelafrica.com</span>
+                  <Mail className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm">contact@label.com</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Phone className="w-4 h-4 text-primary" />
+                  <Phone className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm">+1 (555) 123-4567</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <MapPin className="w-4 h-4 text-primary" />
+                  <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm">Lagos, Nigeria</span>
                 </div>
               </div>
@@ -80,13 +82,13 @@ export function Footer() {
 
             {/* Footer Links */}
             <div className="lg:col-span-2">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
                 {footerSections.map((section, index) => (
                   <div key={index}>
-                    <h3 className="font-semibold text-secondary-foreground mb-4">
+                    <h3 className="font-semibold text-secondary-foreground mb-4 text-sm sm:text-base">
                       {section.title}
                     </h3>
-                    <ul className="space-y-3">
+                    <ul className="space-y-2 sm:space-y-3">
                       {section.links.map((link, linkIndex) => (
                         <li key={linkIndex}>
                           <a
@@ -106,21 +108,21 @@ export function Footer() {
         </div>
 
         {/* Newsletter */}
-        <div className="border-t border-secondary-foreground/10 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="mb-4 md:mb-0">
-              <h3 className="font-semibold mb-2">Stay Updated</h3>
+        <div className="border-t border-secondary-foreground/10 py-6 sm:py-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex-1">
+              <h3 className="font-semibold mb-2 text-sm sm:text-base">Stay Updated</h3>
               <p className="text-sm text-secondary-foreground/70">
                 Get the latest updates on AI data labeling trends and platform features.
               </p>
             </div>
-            <div className="flex space-x-2">
+            <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="px-4 py-2 bg-background/10 border border-secondary-foreground/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+                className="px-4 py-2 bg-background/10 border border-secondary-foreground/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 flex-1 sm:flex-none sm:w-64"
               />
-              <Button size="sm" className="bg-gradient-primary hover:bg-primary/90">
+              <Button size="sm" className="bg-gradient-primary hover:bg-primary/90 text-sm">
                 Subscribe
               </Button>
             </div>
@@ -128,10 +130,10 @@ export function Footer() {
         </div>
 
         {/* Bottom Footer */}
-        <div className="border-t border-secondary-foreground/10 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="text-sm text-secondary-foreground/70 mb-4 md:mb-0">
-              © 2024 LabelAfrica. All rights reserved.
+        <div className="border-t border-secondary-foreground/10 py-4 sm:py-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-sm text-secondary-foreground/70 text-center sm:text-left">
+              © 2024 Label. All rights reserved.
             </div>
             
             <div className="flex items-center space-x-4">
@@ -148,7 +150,7 @@ export function Footer() {
                 </a>
               </div>
               
-              <div className="h-4 w-px bg-secondary-foreground/20"></div>
+              <div className="h-4 w-px bg-secondary-foreground/20 hidden sm:block"></div>
               <ThemeToggle />
             </div>
           </div>

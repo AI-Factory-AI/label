@@ -8,7 +8,7 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Products from "./pages/Products";
-import Leaderboards from "./pages/Leaderboards";
+import Learn from "./pages/Leaderboards";
 import Enterprise from "./pages/Enterprise";
 import Government from "./pages/Government";
 import Customers from "./pages/Customers";
@@ -16,6 +16,9 @@ import Documentation from "./pages/Documentation";
 import Resources from "./pages/Resources";
 import ClientDashboard from "./pages/ClientDashboard";
 import LabelerDashboard from "./pages/LabelerDashboard";
+import About from "./pages/About";
+import Api from "./pages/Api";
+import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,7 +35,7 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/products" element={<Products />} />
-            <Route path="/leaderboards" element={<Leaderboards />} />
+            <Route path="/learn" element={<Learn />} />
             <Route path="/enterprise" element={<Enterprise />} />
             <Route path="/government" element={<Government />} />
             <Route path="/customers" element={<Customers />} />
@@ -40,6 +43,9 @@ const App = () => (
             <Route path="/resources" element={<Resources />} />
             <Route path="/client-dashboard" element={<ClientDashboard />} />
             <Route path="/labeler-dashboard" element={<LabelerDashboard />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/api" element={<Api />} />
+            <Route path="/support" element={<Support />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

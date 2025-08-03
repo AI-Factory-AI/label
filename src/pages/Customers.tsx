@@ -16,7 +16,7 @@ export default function Customers() {
       industry: "Agriculture",
       rating: 5,
       results: "300% faster model training, 99.2% accuracy",
-      avatar: "/api/placeholder/60/60"
+      avatar: "/placeholder.svg"
     },
     {
       quote: "The quality and speed of their annotation services helped us launch our healthcare AI product 6 months ahead of schedule.",
@@ -26,7 +26,7 @@ export default function Customers() {
       industry: "Healthcare",
       rating: 5,
       results: "6 months ahead of schedule, $2M cost savings",
-      avatar: "/api/placeholder/60/60"
+      avatar: "/placeholder.svg"
     },
     {
       quote: "Working with LabelAfrica on our fintech models was seamless. Their team understood our compliance requirements and delivered exceptional results.",
@@ -36,7 +36,7 @@ export default function Customers() {
       industry: "Fintech",
       rating: 5,
       results: "40% reduction in false positives",
-      avatar: "/api/placeholder/60/60"
+      avatar: "/placeholder.svg"
     },
     {
       quote: "LabelAfrica's government solutions team helped us digitize 50 years of archives with incredible accuracy and cultural sensitivity.",
@@ -46,17 +46,17 @@ export default function Customers() {
       industry: "Government",
       rating: 5,
       results: "2M+ documents digitized, 99.8% accuracy",
-      avatar: "/api/placeholder/60/60"
+      avatar: "/placeholder.svg"
     },
     {
-      quote: "Their e-commerce annotation services scaled perfectly with our rapid growth. The quality consistency across millions of products was impressive.",
+      quote: "Their e-commerce annotation services grew perfectly with our rapid growth. The quality consistency across millions of products was impressive.",
       author: "Elena Vasquez",
       title: "Head of Machine Learning",
       company: "Jumia",
       industry: "E-commerce",
       rating: 5,
       results: "5M+ products annotated, 25% improvement in search relevance",
-      avatar: "/api/placeholder/60/60"
+      avatar: "/placeholder.svg"
     },
     {
       quote: "The educational content annotation for our learning platform exceeded expectations. Native language expertise made all the difference.",
@@ -66,7 +66,7 @@ export default function Customers() {
       industry: "EdTech",
       rating: 5,
       results: "100+ languages supported, 95% user satisfaction",
-      avatar: "/api/placeholder/60/60"
+      avatar: "/placeholder.svg"
     }
   ]
 
@@ -143,7 +143,7 @@ export default function Customers() {
         "Reduced training time by 70%",
         "Expanded to 15 countries"
       ],
-      logo: "/api/placeholder/80/40"
+      logo: "/placeholder.svg"
     },
     {
       company: "MedAI Systems",
@@ -155,7 +155,7 @@ export default function Customers() {
         "99.8% diagnostic accuracy",
         "50% faster development cycle"
       ],
-      logo: "/api/placeholder/80/40"
+      logo: "/placeholder.svg"
     }
   ]
 
@@ -169,7 +169,7 @@ export default function Customers() {
           <Badge variant="outline" className="mb-6">
             500+ Happy Customers
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-6xl font-light mb-6">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Customer Success
             </span>
@@ -185,11 +185,11 @@ export default function Customers() {
       {/* Success Metrics */}
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Customer Success by the Numbers</h2>
+          <h2 className="text-3xl font-light text-center mb-12">Customer Success by the Numbers</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {successMetrics.map((metric, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">{metric.metric}</div>
+                <div className="text-4xl font-light text-primary mb-2">{metric.metric}</div>
                 <div className="font-medium mb-1">{metric.label}</div>
                 <div className="text-sm text-muted-foreground">{metric.description}</div>
               </div>
@@ -201,7 +201,7 @@ export default function Customers() {
       {/* Customer Testimonials */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">What Our Customers Say</h2>
+          <h2 className="text-3xl font-light text-center mb-12">What Our Customers Say</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="relative">
@@ -245,7 +245,7 @@ export default function Customers() {
       {/* Industries Served */}
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Industries We Serve</h2>
+          <h2 className="text-3xl font-light text-center mb-12">Industries We Serve</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {industries.map((industry, index) => (
               <Card key={index}>
@@ -266,7 +266,7 @@ export default function Customers() {
       {/* Case Studies */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Detailed Case Studies</h2>
+          <h2 className="text-3xl font-light text-center mb-12">Detailed Case Studies</h2>
           <div className="space-y-8">
             {caseStudies.map((study, index) => (
               <Card key={index}>
@@ -279,15 +279,15 @@ export default function Customers() {
                         </div>
                         <Badge variant="outline">{study.industry}</Badge>
                       </div>
-                      <h3 className="text-xl font-bold mb-2">The Challenge</h3>
+                      <h3 className="text-xl font-light mb-2">The Challenge</h3>
                       <p className="text-muted-foreground text-sm">{study.challenge}</p>
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">Our Solution</h3>
+                      <h3 className="text-xl font-light mb-2">Our Solution</h3>
                       <p className="text-muted-foreground text-sm">{study.solution}</p>
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">Results</h3>
+                      <h3 className="text-xl font-light mb-2">Results</h3>
                       <ul className="space-y-2">
                         {study.results.map((result, idx) => (
                           <li key={idx} className="flex items-center text-sm">
@@ -308,7 +308,7 @@ export default function Customers() {
       {/* CTA */}
       <section className="py-16 px-4">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Join Our Success Stories</h2>
+          <h2 className="text-3xl font-light mb-6">Join Our Success Stories</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Ready to accelerate your AI initiatives? Join hundreds of companies already achieving remarkable results with LabelAfrica.
           </p>

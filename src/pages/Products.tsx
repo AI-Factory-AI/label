@@ -83,12 +83,12 @@ export default function Products() {
           <Badge variant="outline" className="mb-6">
             Trusted by 500+ Companies
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-6xl font-light mb-6">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Data Labeling Products
             </span>
             <br />
-            <span className="text-foreground">Built for Scale</span>
+            <span className="text-foreground">Built for Enterprise</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Choose from our suite of data labeling products designed to accelerate your AI development with African talent and expertise.
@@ -99,7 +99,7 @@ export default function Products() {
       {/* Products Grid */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Product Suite</h2>
+          <h2 className="text-3xl font-light text-center mb-12">Our Product Suite</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {products.map((product, index) => (
               <Card key={index} className={`relative ${product.popular ? 'border-primary' : ''}`}>
@@ -114,7 +114,7 @@ export default function Products() {
                   </div>
                   <CardTitle className="text-xl">{product.name}</CardTitle>
                   <CardDescription>{product.description}</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">
+                  <div className="text-3xl font-light text-primary mt-4">
                     {product.price}
                   </div>
                 </CardHeader>
@@ -142,7 +142,7 @@ export default function Products() {
       {/* Capabilities */}
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Capabilities</h2>
+          <h2 className="text-3xl font-light text-center mb-12">Our Capabilities</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {capabilities.map((capability, index) => (
               <Card key={index} className="text-center">
@@ -164,7 +164,7 @@ export default function Products() {
       {/* CTA Section */}
       <section className="py-16 px-4">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
+          <h2 className="text-3xl font-light mb-6">Ready to Get Started?</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join hundreds of companies already using LabelAfrica to power their AI initiatives.
           </p>

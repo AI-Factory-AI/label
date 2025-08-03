@@ -23,9 +23,9 @@ export default function Login() {
               <div className="w-8 h-8 bg-gradient-primary rounded-md flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-sm">LA</span>
               </div>
-              <span className="text-xl font-bold">LabelAfrica</span>
+              <span className="text-xl font-bold">Label</span>
             </div>
-            <CardTitle className="text-2xl font-bold text-center">Welcome back</CardTitle>
+            <CardTitle className="text-2xl font-light text-center">Welcome back</CardTitle>
             <CardDescription className="text-center">
               Sign in to your account to continue
             </CardDescription>

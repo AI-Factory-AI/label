@@ -83,8 +83,8 @@ export default function Government() {
       description: "Competitive pricing with transparent government contract terms"
     },
     {
-      title: "Capacity & Scale",
-      description: "50,000+ trained labelers across 54 countries for large-scale projects"
+      title: "Capacity & Growth",
+      description: "50,000+ trained labelers across 54 countries for large projects"
     },
     {
       title: "Quality Assurance",
@@ -102,7 +102,7 @@ export default function Government() {
           <Badge variant="outline" className="mb-6">
             Trusted by 25+ African Governments
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-6xl font-light mb-6">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Government AI
             </span>
@@ -130,7 +130,7 @@ export default function Government() {
       {/* Services Grid */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Government Services</h2>
+          <h2 className="text-3xl font-light text-center mb-12">Government Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <Card key={index} className="text-center">
@@ -154,7 +154,7 @@ export default function Government() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Security & Compliance</h2>
+              <h2 className="text-3xl font-light mb-6">Security & Compliance</h2>
               <p className="text-muted-foreground mb-8">
                 We understand the critical importance of data security in government operations. Our platform meets the highest international standards for data protection and compliance.
               </p>
@@ -209,7 +209,7 @@ export default function Government() {
       {/* Case Studies */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Government Success Stories</h2>
+          <h2 className="text-3xl font-light text-center mb-12">Government Success Stories</h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {caseStudies.map((study, index) => (
               <Card key={index}>
@@ -239,7 +239,7 @@ export default function Government() {
       {/* Benefits */}
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Governments Choose LabelAfrica</h2>
+          <h2 className="text-3xl font-light text-center mb-12">Why Governments Choose LabelAfrica</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {benefits.map((benefit, index) => (
               <Card key={index}>
@@ -258,22 +258,22 @@ export default function Government() {
       {/* Stats */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Government Impact</h2>
+          <h2 className="text-3xl font-light text-center mb-12">Government Impact</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">25+</div>
+              <div className="text-4xl font-light text-primary mb-2">25+</div>
               <div className="text-muted-foreground">Government Clients</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">100M+</div>
+              <div className="text-4xl font-light text-primary mb-2">100M+</div>
               <div className="text-muted-foreground">Documents Processed</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">100+</div>
+              <div className="text-4xl font-light text-primary mb-2">100+</div>
               <div className="text-muted-foreground">Languages Supported</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">54</div>
+              <div className="text-4xl font-light text-primary mb-2">54</div>
               <div className="text-muted-foreground">Countries Covered</div>
             </div>
           </div>
@@ -283,7 +283,7 @@ export default function Government() {
       {/* CTA */}
       <section className="py-16 px-4">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Transform Your Government Services</h2>
+          <h2 className="text-3xl font-light mb-6">Transform Your Government Services</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Partner with LabelAfrica to accelerate your digital transformation initiatives with secure, compliant, and culturally-aware AI solutions.
           </p>
