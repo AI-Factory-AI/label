@@ -7,6 +7,11 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Products from "./pages/Products";
+import Leaderboards from "./pages/Leaderboards";
+import Enterprise from "./pages/Enterprise";
+import Government from "./pages/Government";
+import Customers from "./pages/Customers";
 import Documentation from "./pages/Documentation";
 import Resources from "./pages/Resources";
 import ClientDashboard from "./pages/ClientDashboard";
@@ -26,7 +31,12 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/docs" element={<Documentation />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/leaderboards" element={<Leaderboards />} />
+            <Route path="/enterprise" element={<Enterprise />} />
+            <Route path="/government" element={<Government />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/documentation" element={<Documentation />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/client-dashboard" element={<ClientDashboard />} />
             <Route path="/labeler-dashboard" element={<LabelerDashboard />} />
