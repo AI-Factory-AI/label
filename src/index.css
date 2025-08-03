@@ -2,14 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* LabelAfrica Design System - Clean black/white theme with African accents */
 
 @layer base {
   :root {
+    /* Core colors - Clean whites and deep blacks */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 8%;
+    
+    /* African-inspired accent colors */
+    --primary: 44 100% 45%; /* Gold - African heritage */
+    --primary-foreground: 0 0% 100%;
+    --primary-muted: 44 30% 85%;
+    
+    /* Secondary earth tones */
+    --secondary: 25 20% 15%; /* Rich brown */
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Accent colors */
+    --accent: 120 40% 40%; /* African green */
+    --accent-foreground: 0 0% 100%;
+    
+    /* Interface colors */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+    
+    --border: 0 0% 90%;
+    --input: 0 0% 94%;
+    --ring: 44 100% 45%;
+    
+    /* Card and surface colors */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+    
+    /* Interactive states */
+    --hover: 0 0% 94%;
+    --active: 44 100% 50%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(44 100% 45%), hsl(44 80% 55%));
+    --gradient-dark: linear-gradient(135deg, hsl(0 0% 8%), hsl(0 0% 15%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 98%));
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 10px -2px hsl(0 0% 0% / 0.1);
+    --shadow-medium: 0 10px 30px -10px hsl(0 0% 0% / 0.15);
+    --shadow-strong: 0 20px 60px -20px hsl(0 0% 0% / 0.25);
+    
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    --radius: 8px;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -56,41 +100,45 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Dark mode - Pure black theme like Scale AI */
+    --background: 0 0% 6%;
+    --foreground: 0 0% 95%;
+    
+    /* African accents remain vibrant in dark mode */
+    --primary: 44 100% 50%;
+    --primary-foreground: 0 0% 6%;
+    --primary-muted: 44 20% 25%;
+    
+    --secondary: 25 15% 20%;
+    --secondary-foreground: 0 0% 95%;
+    
+    --accent: 120 30% 45%;
+    --accent-foreground: 0 0% 95%;
+    
+    /* Dark interface colors */
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
+    
+    --border: 0 0% 15%;
+    --input: 0 0% 12%;
+    --ring: 44 100% 50%;
+    
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+    
+    /* Dark mode interactive states */
+    --hover: 0 0% 12%;
+    --active: 44 100% 55%;
+    
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(44 100% 50%), hsl(44 80% 60%));
+    --gradient-dark: linear-gradient(135deg, hsl(0 0% 6%), hsl(0 0% 12%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 6%), hsl(0 0% 8%));
+    
+    /* Dark shadows with subtle glow */
+    --shadow-soft: 0 2px 10px -2px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 10px 30px -10px hsl(0 0% 0% / 0.4);
+    --shadow-strong: 0 20px 60px -20px hsl(0 0% 0% / 0.6);
   }
 }
 
