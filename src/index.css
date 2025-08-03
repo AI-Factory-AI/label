@@ -2,46 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-/* LabelAfrica Design System - Clean black/white theme with African accents */
+/* LabelAfrica Design System - Scale AI inspired black/white theme */
 
 @layer base {
   :root {
-    /* Core colors - Clean whites and deep blacks */
+    /* Core colors - Pure whites and deep blacks like Scale AI */
     --background: 0 0% 100%;
-    --foreground: 0 0% 8%;
+    --foreground: 0 0% 3%;
     
-    /* African-inspired accent colors */
-    --primary: 44 100% 45%; /* Gold - African heritage */
+    /* Modern accent colors inspired by Scale AI */
+    --primary: 260 100% 65%; /* Purple accent */
     --primary-foreground: 0 0% 100%;
-    --primary-muted: 44 30% 85%;
+    --primary-muted: 260 20% 85%;
     
-    /* Secondary earth tones */
-    --secondary: 25 20% 15%; /* Rich brown */
+    /* Secondary neutral tones */
+    --secondary: 0 0% 15%; /* Deep neutral */
     --secondary-foreground: 0 0% 100%;
     
     /* Accent colors */
-    --accent: 120 40% 40%; /* African green */
+    --accent: 200 100% 60%; /* Blue accent */
     --accent-foreground: 0 0% 100%;
     
     /* Interface colors */
     --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 40%;
+    --muted-foreground: 0 0% 45%;
     
-    --border: 0 0% 90%;
+    --border: 0 0% 88%;
     --input: 0 0% 94%;
-    --ring: 44 100% 45%;
+    --ring: 260 100% 65%;
     
     /* Card and surface colors */
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 8%;
+    --card-foreground: 0 0% 3%;
     
     /* Interactive states */
     --hover: 0 0% 94%;
-    --active: 44 100% 50%;
+    --active: 260 100% 70%;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(44 100% 45%), hsl(44 80% 55%));
-    --gradient-dark: linear-gradient(135deg, hsl(0 0% 8%), hsl(0 0% 15%));
+    --gradient-primary: linear-gradient(135deg, hsl(260 100% 65%), hsl(200 100% 60%));
+    --gradient-dark: linear-gradient(135deg, hsl(0 0% 3%), hsl(0 0% 8%));
     --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 98%));
     
     /* Shadows */
@@ -101,39 +101,39 @@
 
   .dark {
     /* Dark mode - Pure black theme like Scale AI */
-    --background: 0 0% 6%;
-    --foreground: 0 0% 95%;
+    --background: 0 0% 3%;
+    --foreground: 0 0% 98%;
     
-    /* African accents remain vibrant in dark mode */
-    --primary: 44 100% 50%;
-    --primary-foreground: 0 0% 6%;
-    --primary-muted: 44 20% 25%;
+    /* Modern purple/blue accents for dark mode */
+    --primary: 260 100% 70%;
+    --primary-foreground: 0 0% 3%;
+    --primary-muted: 260 20% 20%;
     
-    --secondary: 25 15% 20%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
     
-    --accent: 120 30% 45%;
-    --accent-foreground: 0 0% 95%;
+    --accent: 200 100% 65%;
+    --accent-foreground: 0 0% 98%;
     
     /* Dark interface colors */
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 65%;
     
-    --border: 0 0% 15%;
-    --input: 0 0% 12%;
-    --ring: 44 100% 50%;
+    --border: 0 0% 12%;
+    --input: 0 0% 8%;
+    --ring: 260 100% 70%;
     
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 95%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 98%;
     
     /* Dark mode interactive states */
-    --hover: 0 0% 12%;
-    --active: 44 100% 55%;
+    --hover: 0 0% 10%;
+    --active: 260 100% 75%;
     
     /* Dark gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(44 100% 50%), hsl(44 80% 60%));
-    --gradient-dark: linear-gradient(135deg, hsl(0 0% 6%), hsl(0 0% 12%));
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 6%), hsl(0 0% 8%));
+    --gradient-primary: linear-gradient(135deg, hsl(260 100% 70%), hsl(200 100% 65%));
+    --gradient-dark: linear-gradient(135deg, hsl(0 0% 3%), hsl(0 0% 6%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 3%), hsl(0 0% 5%));
     
     /* Dark shadows with subtle glow */
     --shadow-soft: 0 2px 10px -2px hsl(0 0% 0% / 0.3);

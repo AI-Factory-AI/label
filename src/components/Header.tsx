@@ -9,8 +9,8 @@ export function Header() {
   const navigationItems = [
     { label: "Solutions", href: "#solutions" },
     { label: "Industries", href: "#industries" },
-    { label: "About", href: "#about" },
-    { label: "Contact", href: "#contact" },
+    { label: "Documentation", href: "/docs" },
+    { label: "Resources", href: "/resources" },
   ]
 
   return (
