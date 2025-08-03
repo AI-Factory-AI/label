@@ -20,16 +20,10 @@ export default function Signup() {
         {/* Signup Form */}
         <Card>
           <CardHeader className="space-y-1">
-            <div className="flex items-center space-x-2 justify-center mb-4">
-              <div className="w-8 h-8 bg-gradient-primary rounded-md flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">LA</span>
-              </div>
-              <span className="text-xl font-bold">Label</span>
-            </div>
-                          <CardTitle className="text-2xl font-light text-center">Join Label</CardTitle>
             <CardDescription className="text-center">
-              Choose your account type to get started
+              Create your account to get started
             </CardDescription>
+            <CardTitle className="text-2xl font-light text-center">Join Label</CardTitle>
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="client" className="w-full">

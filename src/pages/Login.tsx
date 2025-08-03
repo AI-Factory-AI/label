@@ -19,16 +19,10 @@ export default function Login() {
         {/* Login Form */}
         <Card>
           <CardHeader className="space-y-1">
-            <div className="flex items-center space-x-2 justify-center mb-4">
-              <div className="w-8 h-8 bg-gradient-primary rounded-md flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">LA</span>
-              </div>
-              <span className="text-xl font-bold">Label</span>
-            </div>
-            <CardTitle className="text-2xl font-light text-center">Welcome back</CardTitle>
             <CardDescription className="text-center">
-              Sign in to your account to continue
+              Enter your credentials to access your account
             </CardDescription>
+            <CardTitle className="text-2xl font-light text-center">Welcome back</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
