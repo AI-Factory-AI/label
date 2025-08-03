@@ -2,308 +2,317 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Input } from "@/components/ui/input"
 import { 
-  Play,
-  Trophy,
-  Star,
+  Star, 
+  Clock, 
+  CheckCircle, 
   DollarSign,
-  Target,
-  Clock,
-  CheckCircle,
-  Image,
   FileText,
-  Volume2,
-  Monitor
+  Image,
+  Mic,
+  Video,
+  MessageSquare,
+  Trophy,
+  Target,
+  TrendingUp,
+  Award,
+  BarChart3,
+  Settings,
+  HelpCircle,
+  ChevronDown,
+  Search,
+  Filter,
+  User
 } from "lucide-react"
 
 export default function LabelerDashboard() {
+  // Mock data for available tasks
   const availableTasks = [
     {
       id: "task_001",
-      title: "African Wildlife Classification",
-      type: "image_classification",
-      payment: 0.15,
-      estimatedTime: "30 sec",
+      title: "Wildlife Image Classification",
+      description: "Classify animals in African wildlife photos",
+      type: "image",
+      payment: 0.25,
       difficulty: "Easy",
-      remainingTasks: 250
+      remaining: 150,
+      timeEstimate: "2-3 min"
     },
     {
-      id: "task_002",
-      title: "Agricultural Object Detection", 
-      type: "object_detection",
-      payment: 0.45,
-      estimatedTime: "2 min",
+      id: "task_002", 
+      title: "Swahili Audio Transcription",
+      description: "Transcribe Swahili conversations",
+      type: "audio",
+      payment: 0.50,
       difficulty: "Medium",
-      remainingTasks: 89
+      remaining: 75,
+      timeEstimate: "5-8 min"
     },
     {
       id: "task_003",
-      title: "Swahili Audio Transcription",
-      type: "audio_transcription", 
-      payment: 0.80,
-      estimatedTime: "5 min",
-      difficulty: "Hard",
-      remainingTasks: 156
+      title: "Agricultural Text Classification",
+      description: "Categorize farming-related text data",
+      type: "text",
+      payment: 0.15,
+      difficulty: "Easy",
+      remaining: 200,
+      timeEstimate: "1-2 min"
     },
     {
       id: "task_004",
-      title: "Text Sentiment Analysis",
-      type: "text_classification",
-      payment: 0.25,
-      estimatedTime: "1 min", 
-      difficulty: "Easy",
-      remainingTasks: 340
+      title: "Video Content Moderation",
+      description: "Review and moderate video content",
+      type: "video",
+      payment: 0.75,
+      difficulty: "Hard",
+      remaining: 25,
+      timeEstimate: "10-15 min"
     }
   ]
 
+  // Mock data for recent earnings
   const recentEarnings = [
-    { date: "Today", amount: 23.45, tasks: 67 },
-    { date: "Yesterday", amount: 31.20, tasks: 89 },
-    { date: "2 days ago", amount: 28.90, tasks: 78 },
-    { date: "3 days ago", amount: 35.60, tasks: 92 }
+    { date: "Today", amount: 12.50, tasks: 25 },
+    { date: "Yesterday", amount: 18.75, tasks: 38 },
+    { date: "Dec 1", amount: 22.25, tasks: 45 },
+    { date: "Nov 30", amount: 15.00, tasks: 30 },
+  ]
+
+  const menuItems = [
+    { name: "Dashboard", icon: BarChart3, active: true },
+    { name: "Available Tasks", icon: FileText, active: false },
+    { name: "Completed Tasks", icon: CheckCircle, active: false },
+    { name: "Earnings", icon: DollarSign, active: false },
+    { name: "Leaderboard", icon: Trophy, active: false },
+    { name: "Profile", icon: User, active: false },
+    { name: "Settings", icon: Settings, active: false },
+    { name: "Help", icon: HelpCircle, active: false },
   ]
 
   const getTaskIcon = (type: string) => {
     switch (type) {
-      case "image_classification": return <Image className="h-4 w-4" />
-      case "object_detection": return <Monitor className="h-4 w-4" />
-      case "audio_transcription": return <Volume2 className="h-4 w-4" />
-      case "text_classification": return <FileText className="h-4 w-4" />
+      case "image": return <Image className="h-4 w-4" />
+      case "audio": return <Mic className="h-4 w-4" />
+      case "video": return <Video className="h-4 w-4" />
+      case "text": return <FileText className="h-4 w-4" />
       default: return <FileText className="h-4 w-4" />
     }
   }
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case "Easy": return "bg-green-500"
-      case "Medium": return "bg-yellow-500"
-      case "Hard": return "bg-red-500"
-      default: return "bg-gray-500"
+      case "Easy": return "text-green-600 bg-green-50"
+      case "Medium": return "text-yellow-600 bg-yellow-50"
+      case "Hard": return "text-red-600 bg-red-50"
+      default: return "text-gray-600 bg-gray-50"
     }
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-card">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <div className="w-8 h-8 bg-gradient-primary rounded-md flex items-center justify-center">
+    <div className="min-h-screen bg-background flex">
+      {/* Sidebar */}
+      <div className="w-64 bg-sidebar border-r border-border flex flex-col">
+        {/* Logo */}
+        <div className="p-6 border-b border-border">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">LA</span>
             </div>
-            <div>
-              <h1 className="font-semibold">Labeler Dashboard</h1>
-              <p className="text-sm text-muted-foreground">Welcome back, Sarah!</p>
-            </div>
+            <span className="font-semibold text-lg">LabelAfrica</span>
           </div>
-          <div className="flex items-center space-x-4">
+        </div>
+
+        {/* Navigation */}
+        <nav className="flex-1 p-4">
+          <div className="space-y-2">
+            {menuItems.map((item) => (
+              <button
+                key={item.name}
+                className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-sm transition-colors ${
+                  item.active 
+                    ? 'bg-primary text-primary-foreground' 
+                    : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+                }`}
+              >
+                <item.icon className="h-4 w-4" />
+                <span>{item.name}</span>
+              </button>
+            ))}
+          </div>
+        </nav>
+
+        {/* User Profile */}
+        <div className="p-4 border-t border-border">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-sm">JD</span>
+            </div>
+            <div className="flex-1">
+              <p className="text-sm font-medium">John Doe</p>
+              <p className="text-xs text-muted-foreground">Labeler</p>
+            </div>
+            <ChevronDown className="h-4 w-4 text-muted-foreground" />
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col">
+        {/* Top Header */}
+        <header className="h-16 border-b border-border bg-card px-6 flex items-center justify-between">
+          <div>
+            <h1 className="text-xl font-semibold">Labeler Dashboard</h1>
+            <p className="text-sm text-muted-foreground">Track your tasks and earnings</p>
+          </div>
+          <div className="flex items-center space-x-3">
             <div className="text-right">
-              <p className="text-sm font-medium">$234.50</p>
+              <p className="text-lg font-bold">$127.50</p>
               <p className="text-xs text-muted-foreground">Available balance</p>
             </div>
-            <div className="w-8 h-8 bg-muted rounded-full"></div>
+            <Button className="bg-primary hover:bg-primary/90">
+              Withdraw
+            </Button>
           </div>
-        </div>
-      </header>
+        </header>
 
-      <div className="container mx-auto px-4 py-8">
-        {/* Stats Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Earnings</CardTitle>
-              <DollarSign className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">$1,234.50</div>
-              <p className="text-xs text-muted-foreground">+$23.45 today</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Tasks Completed</CardTitle>
-              <CheckCircle className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">3,456</div>
-              <p className="text-xs text-muted-foreground">67 today</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Accuracy Rate</CardTitle>
-              <Target className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">96.8%</div>
-              <p className="text-xs text-muted-foreground">Above 95% target</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Current Rank</CardTitle>
-              <Trophy className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">#47</div>
-              <p className="text-xs text-muted-foreground">Gold tier labeler</p>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Main Content */}
-        <Tabs defaultValue="tasks" className="space-y-6">
-          <TabsList>
-            <TabsTrigger value="tasks">Available Tasks</TabsTrigger>
-            <TabsTrigger value="completed">Completed</TabsTrigger>
-            <TabsTrigger value="earnings">Earnings</TabsTrigger>
-            <TabsTrigger value="profile">Profile</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="tasks" className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold">Available Tasks</h2>
-              <div className="flex items-center space-x-2">
-                <Button variant="outline">Filter</Button>
-                <Button variant="outline">Sort by Payment</Button>
-              </div>
+        {/* Content Area */}
+        <div className="flex-1 p-6 space-y-6">
+          {/* Search and Filter */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <div className="flex-1 relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input placeholder="Search available tasks..." className="pl-10" />
             </div>
+            <Button variant="outline" className="w-full sm:w-auto">
+              <Filter className="mr-2 h-4 w-4" />
+              Filter
+            </Button>
+          </div>
 
-            <div className="grid gap-4">
-              {availableTasks.map((task) => (
-                <Card key={task.id} className="hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center space-x-3 mb-2">
-                          {getTaskIcon(task.type)}
-                          <h3 className="font-semibold">{task.title}</h3>
-                          <Badge className={getDifficultyColor(task.difficulty)}>
+          {/* Stats Overview */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="border-l-4 border-l-green-500">
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between">
+                  <CardTitle className="text-lg font-medium">Total Earnings</CardTitle>
+                  <DollarSign className="h-5 w-5 text-green-600" />
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  <div className="text-2xl font-bold">$1,247.50</div>
+                  <div className="text-sm text-muted-foreground">+12.5% from last month</div>
+                  <div className="flex items-center space-x-2 text-xs">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span>Active earnings</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-blue-500">
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between">
+                  <CardTitle className="text-lg font-medium">Tasks Completed</CardTitle>
+                  <CheckCircle className="h-5 w-5 text-blue-600" />
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  <div className="text-2xl font-bold">2,847</div>
+                  <div className="text-sm text-muted-foreground">+18% from last month</div>
+                  <div className="flex items-center space-x-2 text-xs">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span>98.5% accuracy</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-purple-500">
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between">
+                  <CardTitle className="text-lg font-medium">Current Rank</CardTitle>
+                  <Trophy className="h-5 w-5 text-purple-600" />
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  <div className="text-2xl font-bold">#47</div>
+                  <div className="text-sm text-muted-foreground">Top 5% of labelers</div>
+                  <div className="flex items-center space-x-2 text-xs">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    <span>Expert level</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-orange-500">
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between">
+                  <CardTitle className="text-lg font-medium">Available Tasks</CardTitle>
+                  <FileText className="h-5 w-5 text-orange-600" />
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  <div className="text-2xl font-bold">450</div>
+                  <div className="text-sm text-muted-foreground">Ready to start</div>
+                  <div className="flex items-center space-x-2 text-xs">
+                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                    <span>Multiple types</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Available Tasks */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Available Tasks</CardTitle>
+              <CardDescription>Choose from available tasks and start earning</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {availableTasks.map((task) => (
+                  <div key={task.id} className="flex flex-col lg:flex-row lg:items-center justify-between p-4 rounded-lg border hover:bg-muted/50 transition-colors space-y-4 lg:space-y-0">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
+                        {getTaskIcon(task.type)}
+                      </div>
+                      <div>
+                        <h3 className="font-medium">{task.title}</h3>
+                        <p className="text-sm text-muted-foreground">{task.description}</p>
+                        <div className="flex items-center space-x-4 mt-1">
+                          <span className="text-xs text-muted-foreground">{task.timeEstimate}</span>
+                          <Badge className={`${getDifficultyColor(task.difficulty)} text-xs border-0`}>
                             {task.difficulty}
                           </Badge>
                         </div>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-muted-foreground">
-                          <div>
-                            <span className="font-medium text-foreground">${task.payment}</span>
-                            <span> per task</span>
-                          </div>
-                          <div>
-                            <Clock className="inline h-3 w-3 mr-1" />
-                            {task.estimatedTime}
-                          </div>
-                          <div>
-                            {task.remainingTasks} tasks remaining
-                          </div>
-                          <div className="text-green-600 font-medium">
-                            ${(task.payment * task.remainingTasks).toFixed(2)} potential
-                          </div>
-                        </div>
                       </div>
-                      <Button className="bg-gradient-primary hover:bg-primary/90">
-                        <Play className="mr-2 h-4 w-4" />
+                    </div>
+                    <div className="flex flex-row lg:flex-row items-center space-x-4 lg:space-x-6">
+                      <div className="text-center lg:text-right">
+                        <p className="text-sm font-medium">${task.payment}</p>
+                        <p className="text-xs text-muted-foreground">per task</p>
+                      </div>
+                      <div className="text-center lg:text-right">
+                        <p className="text-sm font-medium">{task.remaining}</p>
+                        <p className="text-xs text-muted-foreground">remaining</p>
+                      </div>
+                      <Button className="bg-primary hover:bg-primary/90 w-full lg:w-auto">
                         Start Task
                       </Button>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
-
-          <TabsContent value="completed" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Recently Completed Tasks</CardTitle>
-                <CardDescription>Your task completion history and feedback</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-center text-muted-foreground py-12">
-                  Completed tasks history coming soon...
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          <TabsContent value="earnings" className="space-y-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Recent Earnings</CardTitle>
-                  <CardDescription>Your daily earnings breakdown</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {recentEarnings.map((earning, index) => (
-                      <div key={index} className="flex items-center justify-between">
-                        <div>
-                          <p className="font-medium">{earning.date}</p>
-                          <p className="text-sm text-muted-foreground">{earning.tasks} tasks</p>
-                        </div>
-                        <div className="text-right">
-                          <p className="font-semibold">${earning.amount}</p>
-                        </div>
-                      </div>
-                    ))}
                   </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Achievement Progress</CardTitle>
-                  <CardDescription>Your progress towards next tier</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm">Tasks to Platinum Tier</span>
-                      <span className="text-sm">3,456 / 5,000</span>
-                    </div>
-                    <Progress value={69} />
-                  </div>
-                  
-                  <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm">Quality Score</span>
-                      <div className="flex items-center space-x-1">
-                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                        <span className="text-sm">4.8/5.0</span>
-                      </div>
-                    </div>
-                    <Progress value={96} />
-                  </div>
-
-                  <div className="pt-4 border-t">
-                    <h4 className="font-medium mb-2">Next Rewards</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• 10% bonus on all tasks</li>
-                      <li>• Priority access to high-paying tasks</li>
-                      <li>• $50 milestone bonus</li>
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </TabsContent>
-
-          <TabsContent value="profile" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Labeler Profile</CardTitle>
-                <CardDescription>Manage your profile and skills</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-center text-muted-foreground py-12">
-                  Profile management coming soon...
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        </Tabs>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   )
