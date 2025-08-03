@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Input } from "@/components/ui/input"
 import { 
   Upload, 
   FileText, 
@@ -12,7 +12,12 @@ import {
   AlertCircle, 
   BarChart3,
   Download,
-  Plus
+  Plus,
+  Search,
+  Settings,
+  HelpCircle,
+  ChevronDown,
+  Filter
 } from "lucide-react"
 
 export default function ClientDashboard() {
@@ -26,7 +31,8 @@ export default function ClientDashboard() {
       totalTasks: 1000,
       completedTasks: 750,
       accuracy: 98.5,
-      estimatedCompletion: "2 days"
+      estimatedCompletion: "2 days",
+      email: "wildlife@example.com"
     },
     {
       id: "proj_002", 
@@ -37,7 +43,8 @@ export default function ClientDashboard() {
       totalTasks: 500,
       completedTasks: 500,
       accuracy: 99.2,
-      estimatedCompletion: "Completed"
+      estimatedCompletion: "Completed",
+      email: "agri@example.com"
     },
     {
       id: "proj_003",
@@ -48,16 +55,26 @@ export default function ClientDashboard() {
       totalTasks: 2000,
       completedTasks: 0,
       accuracy: 0,
-      estimatedCompletion: "Pending approval"
+      estimatedCompletion: "Pending approval",
+      email: "sentiment@example.com"
     }
+  ]
+
+  const menuItems = [
+    { name: "Dashboard", icon: BarChart3, active: true },
+    { name: "Upload Data", icon: Upload, active: false },
+    { name: "Track Projects", icon: FileText, active: false },
+    { name: "Analytics", icon: BarChart3, active: false },
+    { name: "Settings", icon: Settings, active: false },
+    { name: "Help", icon: HelpCircle, active: false },
   ]
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "completed": return "bg-green-500"
-      case "in_progress": return "bg-blue-500"
-      case "pending": return "bg-yellow-500"
-      default: return "bg-gray-500"
+      case "completed": return "text-green-600 bg-green-50"
+      case "in_progress": return "text-blue-600 bg-blue-50"
+      case "pending": return "text-orange-600 bg-orange-50"
+      default: return "text-gray-600 bg-gray-50"
     }
   }
 
@@ -71,205 +88,187 @@ export default function ClientDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-card">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <div className="w-8 h-8 bg-gradient-primary rounded-md flex items-center justify-center">
+    <div className="min-h-screen bg-background flex">
+      {/* Sidebar */}
+      <div className="w-64 bg-sidebar border-r border-border flex flex-col">
+        {/* Logo */}
+        <div className="p-6 border-b border-border">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">LA</span>
             </div>
-            <div>
-              <h1 className="font-semibold">Client Dashboard</h1>
-              <p className="text-sm text-muted-foreground">Acme Corp</p>
-            </div>
+            <span className="font-semibold text-lg">LabelAfrica</span>
           </div>
-          <div className="flex items-center space-x-4">
-            <Button className="bg-gradient-primary hover:bg-primary/90">
+        </div>
+
+        {/* Navigation */}
+        <nav className="flex-1 p-4">
+          <div className="space-y-2">
+            {menuItems.map((item) => (
+              <button
+                key={item.name}
+                className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-sm transition-colors ${
+                  item.active 
+                    ? 'bg-primary text-primary-foreground' 
+                    : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+                }`}
+              >
+                <item.icon className="h-4 w-4" />
+                <span>{item.name}</span>
+              </button>
+            ))}
+          </div>
+        </nav>
+
+        {/* User Profile */}
+        <div className="p-4 border-t border-border">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-muted rounded-full"></div>
+            <div className="flex-1">
+              <p className="text-sm font-medium">Acme Corp</p>
+              <p className="text-xs text-muted-foreground">admin@acme.com</p>
+            </div>
+            <ChevronDown className="h-4 w-4 text-muted-foreground" />
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col">
+        {/* Top Header */}
+        <header className="h-16 border-b border-border bg-card px-6 flex items-center justify-between">
+          <div>
+            <h1 className="text-xl font-semibold">Project Analytics</h1>
+            <p className="text-sm text-muted-foreground">Track your data labeling projects</p>
+          </div>
+          <div className="flex items-center space-x-3">
+            <Button variant="outline" size="sm">
+              <Filter className="mr-2 h-4 w-4" />
+              Last 30 days
+            </Button>
+            <Button className="bg-primary hover:bg-primary/90">
               <Plus className="mr-2 h-4 w-4" />
               New Project
             </Button>
-            <div className="w-8 h-8 bg-muted rounded-full"></div>
           </div>
-        </div>
-      </header>
+        </header>
 
-      <div className="container mx-auto px-4 py-8">
-        {/* Stats Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        {/* Content Area */}
+        <div className="flex-1 p-6 space-y-6">
+          {/* Search and Filter */}
+          <div className="flex items-center space-x-4">
+            <div className="flex-1 relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input placeholder="Search projects..." className="pl-10" />
+            </div>
+            <Button variant="outline">
+              <Filter className="mr-2 h-4 w-4" />
+              Filter
+            </Button>
+          </div>
+
+          {/* Project Status Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="border-l-4 border-l-green-500">
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between">
+                  <CardTitle className="text-lg font-medium">Completed Projects</CardTitle>
+                  <CheckCircle className="h-5 w-5 text-green-600" />
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  <div className="text-2xl font-bold">1</div>
+                  <div className="text-sm text-muted-foreground">Agricultural Dataset</div>
+                  <div className="flex items-center space-x-2 text-xs">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span>99.2% accuracy</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-blue-500">
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between">
+                  <CardTitle className="text-lg font-medium">In Progress</CardTitle>
+                  <Clock className="h-5 w-5 text-blue-600" />
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  <div className="text-2xl font-bold">1</div>
+                  <div className="text-sm text-muted-foreground">Wildlife Classification</div>
+                  <div className="flex items-center space-x-2 text-xs">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span>75% complete</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-orange-500">
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between">
+                  <CardTitle className="text-lg font-medium">Pending Approval</CardTitle>
+                  <AlertCircle className="h-5 w-5 text-orange-600" />
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  <div className="text-2xl font-bold">1</div>
+                  <div className="text-sm text-muted-foreground">Text Sentiment Analysis</div>
+                  <div className="flex items-center space-x-2 text-xs">
+                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                    <span>Awaiting review</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Project List */}
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Active Projects</CardTitle>
-              <FileText className="h-4 w-4 text-muted-foreground" />
+            <CardHeader>
+              <CardTitle>All Projects</CardTitle>
+              <CardDescription>Manage and track all your data labeling projects</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">3</div>
-              <p className="text-xs text-muted-foreground">+1 from last month</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Tasks</CardTitle>
-              <BarChart3 className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">3,500</div>
-              <p className="text-xs text-muted-foreground">1,250 completed</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Avg. Accuracy</CardTitle>
-              <CheckCircle className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">98.9%</div>
-              <p className="text-xs text-muted-foreground">Above target 95%</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Active Labelers</CardTitle>
-              <Users className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">47</div>
-              <p className="text-xs text-muted-foreground">Across 12 countries</p>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Main Content */}
-        <Tabs defaultValue="projects" className="space-y-6">
-          <TabsList>
-            <TabsTrigger value="projects">Projects</TabsTrigger>
-            <TabsTrigger value="analytics">Analytics</TabsTrigger>
-            <TabsTrigger value="billing">Billing</TabsTrigger>
-            <TabsTrigger value="settings">Settings</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="projects" className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold">My Projects</h2>
-              <div className="flex items-center space-x-2">
-                <Button variant="outline">
-                  <Upload className="mr-2 h-4 w-4" />
-                  Bulk Upload
-                </Button>
-                <Button className="bg-gradient-primary hover:bg-primary/90">
-                  <Plus className="mr-2 h-4 w-4" />
-                  Create Project
-                </Button>
+              <div className="space-y-4">
+                {projects.map((project) => (
+                  <div key={project.id} className="flex items-center justify-between p-4 rounded-lg border hover:bg-muted/50 transition-colors">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
+                        <FileText className="h-5 w-5 text-muted-foreground" />
+                      </div>
+                      <div>
+                        <h3 className="font-medium">{project.name}</h3>
+                        <p className="text-sm text-muted-foreground">{project.email}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-6">
+                      <div className="text-right">
+                        <p className="text-sm font-medium">{project.completedTasks}</p>
+                        <p className="text-xs text-muted-foreground">Tasks completed</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-sm font-medium">{project.accuracy}%</p>
+                        <p className="text-xs text-muted-foreground">Accuracy</p>
+                      </div>
+                      <Badge className={`${getStatusColor(project.status)} border-0`}>
+                        {getStatusIcon(project.status)}
+                        <span className="ml-1 capitalize">{project.status.replace('_', ' ')}</span>
+                      </Badge>
+                      <Button variant="ghost" size="sm">
+                        <Download className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                ))}
               </div>
-            </div>
-
-            <div className="grid gap-6">
-              {projects.map((project) => (
-                <Card key={project.id} className="hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <CardTitle className="flex items-center space-x-2">
-                          <span>{project.name}</span>
-                          <Badge variant="outline">{project.type}</Badge>
-                        </CardTitle>
-                        <CardDescription>Project ID: {project.id}</CardDescription>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Badge className={getStatusColor(project.status)}>
-                          {getStatusIcon(project.status)}
-                          <span className="ml-1 capitalize">{project.status.replace('_', ' ')}</span>
-                        </Badge>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
-                      <div>
-                        <p className="text-sm text-muted-foreground">Progress</p>
-                        <div className="flex items-center space-x-2">
-                          <Progress value={project.progress} className="flex-1" />
-                          <span className="text-sm font-medium">{project.progress}%</span>
-                        </div>
-                      </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">Tasks</p>
-                        <p className="font-medium">{project.completedTasks} / {project.totalTasks}</p>
-                      </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">Accuracy</p>
-                        <p className="font-medium">{project.accuracy}%</p>
-                      </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">ETA</p>
-                        <p className="font-medium">{project.estimatedCompletion}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Button variant="outline" size="sm">
-                        View Details
-                      </Button>
-                      <Button variant="outline" size="sm">
-                        <Download className="mr-2 h-4 w-4" />
-                        Export
-                      </Button>
-                      {project.status === 'pending' && (
-                        <Button size="sm" className="bg-gradient-primary hover:bg-primary/90">
-                          Approve & Start
-                        </Button>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
-
-          <TabsContent value="analytics" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Project Analytics</CardTitle>
-                <CardDescription>Performance metrics and insights</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-center text-muted-foreground py-12">
-                  Analytics dashboard coming soon...
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          <TabsContent value="billing" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Billing & Usage</CardTitle>
-                <CardDescription>Manage your subscription and view usage</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-center text-muted-foreground py-12">
-                  Billing dashboard coming soon...
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          <TabsContent value="settings" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Account Settings</CardTitle>
-                <CardDescription>Manage your account and preferences</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-center text-muted-foreground py-12">
-                  Settings panel coming soon...
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        </Tabs>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   )
