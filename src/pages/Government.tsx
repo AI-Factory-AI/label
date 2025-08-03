@@ -239,7 +239,7 @@ export default function Government() {
       {/* Benefits */}
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-light text-center mb-12">Why Governments Choose LabelAfrica</h2>
+          <h2 className="text-3xl font-light text-center mb-12">Why Governments Choose Lable</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {benefits.map((benefit, index) => (
               <Card key={index}>
@@ -285,7 +285,7 @@ export default function Government() {
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-light mb-6">Transform Your Government Services</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Partner with LabelAfrica to accelerate your digital transformation initiatives with secure, compliant, and culturally-aware AI solutions.
+            Partner with Lable to accelerate your digital transformation initiatives with secure, compliant, and culturally-aware AI solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/signup">

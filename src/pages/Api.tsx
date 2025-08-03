@@ -49,7 +49,7 @@ export default function Api() {
     {
       title: "Create Project",
       language: "bash",
-      code: `curl -X POST https://api.labelafrica.com/v1/projects \\
+      code: `curl -X POST https://api.lable.com/v1/projects \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -63,7 +63,7 @@ export default function Api() {
       language: "python",
       code: `import requests
 
-url = "https://api.labelafrica.com/v1/tasks"
+        url = "https://api.lable.com/v1/tasks"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
@@ -97,13 +97,13 @@ print(response.json())`
           </div>
           <h1 className="text-4xl md:text-6xl font-light mb-6">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              LabelAfrica
+                              Lable
             </span>
             <br />
             <span className="text-foreground">API Documentation</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Integrate LabelAfrica's data labeling services into your applications with our comprehensive REST API.
+            Integrate Lable's data labeling services into your applications with our comprehensive REST API.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-gradient-primary hover:bg-primary/90">
@@ -125,7 +125,7 @@ print(response.json())`
             <div>
               <h2 className="text-3xl font-light mb-6">Quick Start</h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Get up and running with LabelAfrica's API in minutes. Our RESTful API provides 
+                Get up and running with Lable's API in minutes. Our RESTful API provides 
                 everything you need to integrate data labeling into your workflow.
               </p>
               <div className="space-y-4">
@@ -158,7 +158,7 @@ print(response.json())`
             <div className="bg-background rounded-lg p-6 border border-border">
               <h3 className="text-lg font-semibold mb-4">Base URL</h3>
               <div className="bg-muted p-4 rounded-md font-mono text-sm">
-                https://api.labelafrica.com/v1
+                https://api.lable.com/v1
               </div>
               <h3 className="text-lg font-semibold mb-4 mt-6">Authentication</h3>
               <div className="bg-muted p-4 rounded-md font-mono text-sm">
@@ -294,7 +294,7 @@ print(response.json())`
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-light mb-6">Ready to Get Started?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join thousands of developers using LabelAfrica's API to build the next generation of AI applications.
+            Join thousands of developers using Lable's API to build the next generation of AI applications.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-gradient-primary hover:bg-primary/90">

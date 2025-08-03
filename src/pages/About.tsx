@@ -83,7 +83,7 @@ export default function About() {
             <div>
               <h2 className="text-3xl font-light mb-6">Our Mission</h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                LabelAfrica was founded with a simple yet powerful vision: to unlock Africa's potential 
+                Lable was founded with a simple yet powerful vision: to unlock Africa's potential 
                 as a global hub for AI data labeling and machine learning expertise.
               </p>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
@@ -133,7 +133,7 @@ export default function About() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-light mb-4">Our Values</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              The principles that guide everything we do at LabelAfrica
+              The principles that guide everything we do at Lable
             </p>
           </div>
           
@@ -159,7 +159,7 @@ export default function About() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-light mb-4">Leadership Team</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Meet the visionaries driving LabelAfrica's mission
+              Meet the visionaries driving Lable's mission
             </p>
           </div>
           

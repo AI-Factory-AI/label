@@ -88,7 +88,7 @@ export default function Enterprise() {
 
   const testimonials = [
     {
-      quote: "LabelAfrica's enterprise solution helped us grow our computer vision models 10x faster than our previous approach.",
+      quote: "Lable's enterprise solution helped us grow our computer vision models 10x faster than our previous approach.",
       author: "Sarah Chen",
       title: "Head of AI, TechCorp",
       company: "Fortune 500 Technology Company"
@@ -254,7 +254,7 @@ export default function Enterprise() {
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-light mb-6">Ready to Grow Your AI?</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join hundreds of enterprise clients who trust LabelAfrica with their most important AI initiatives.
+            Join hundreds of enterprise clients who trust Lable with their most important AI initiatives.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/signup">

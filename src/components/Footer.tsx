@@ -53,7 +53,7 @@ export function Footer() {
               <div className="flex items-center space-x-2 mb-6">
                 <img 
                   src="https://res.cloudinary.com/ecosheane/image/upload/v1754217265/lable_z2geih.png" 
-                  alt="LabelAfrica Logo" 
+                  alt="Lable Logo" 
                   className="h-6 sm:h-8 w-auto"
                 />
                 <span className="text-lg sm:text-xl font-bold">Label</span>
@@ -67,15 +67,15 @@ export function Footer() {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">contact@label.com</span>
+                  <span className="text-sm">info@label.com</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">+1 (555) 123-4567</span>
+                  <span className="text-sm">+(233) 240027151</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">Lagos, Nigeria</span>
+                  <span className="text-sm">Accra, Ghana</span>
                 </div>
               </div>
             </div>

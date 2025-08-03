@@ -9,7 +9,7 @@ import { Link } from "react-router-dom"
 export default function Customers() {
   const testimonials = [
     {
-      quote: "LabelAfrica transformed our computer vision capabilities. Their understanding of African contexts and multilingual expertise was exactly what our agricultural AI needed.",
+      quote: "Lable transformed our computer vision capabilities. Their understanding of African contexts and multilingual expertise was exactly what our agricultural AI needed.",
       author: "Dr. Sarah Chen",
       title: "Head of AI Research",
       company: "AgriTech Solutions",
@@ -29,7 +29,7 @@ export default function Customers() {
       avatar: "/placeholder.svg"
     },
     {
-      quote: "Working with LabelAfrica on our fintech models was seamless. Their team understood our compliance requirements and delivered exceptional results.",
+      quote: "Working with Lable on our fintech models was seamless. Their team understood our compliance requirements and delivered exceptional results.",
       author: "Amara Okafor",
       title: "Chief Data Officer",
       company: "Paystack",
@@ -39,7 +39,7 @@ export default function Customers() {
       avatar: "/placeholder.svg"
     },
     {
-      quote: "LabelAfrica's government solutions team helped us digitize 50 years of archives with incredible accuracy and cultural sensitivity.",
+      quote: "Lable's government solutions team helped us digitize 50 years of archives with incredible accuracy and cultural sensitivity.",
       author: "Joseph Mbeki",
       title: "Director of Digital Services",
       company: "Department of Records",
@@ -177,7 +177,7 @@ export default function Customers() {
             <span className="text-foreground">Stories</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Discover how leading companies across Africa and beyond are using LabelAfrica to accelerate their AI initiatives and achieve remarkable results.
+            Discover how leading companies across Africa and beyond are using Lable to accelerate their AI initiatives and achieve remarkable results.
           </p>
         </div>
       </section>
@@ -310,7 +310,7 @@ export default function Customers() {
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-light mb-6">Join Our Success Stories</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Ready to accelerate your AI initiatives? Join hundreds of companies already achieving remarkable results with LabelAfrica.
+            Ready to accelerate your AI initiatives? Join hundreds of companies already achieving remarkable results with Lable.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/signup">

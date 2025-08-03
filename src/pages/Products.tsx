@@ -166,7 +166,7 @@ export default function Products() {
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-light mb-6">Ready to Get Started?</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join hundreds of companies already using LabelAfrica to power their AI initiatives.
+            Join hundreds of companies already using Lable to power their AI initiatives.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/signup">

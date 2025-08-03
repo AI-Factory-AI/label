@@ -1,4 +1,4 @@
-# LabelAfrica
+# Lable
 
 A modern web application for AI data labeling services powered by African talent.
 

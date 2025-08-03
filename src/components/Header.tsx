@@ -46,7 +46,7 @@ export function Header() {
         <Link to="/" className="flex items-center space-x-2 flex-shrink-0">
           <img 
             src="https://res.cloudinary.com/ecosheane/image/upload/v1754217265/lable_z2geih.png" 
-            alt="LabelAfrica Logo" 
+            alt="Lable Logo" 
             className="h-6 sm:h-8 w-auto"
           />
           <span className="text-lg sm:text-xl font-bold text-foreground">Label</span>
@@ -55,13 +55,13 @@ export function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
           {navigationItems.map((item) => (
-            <a
+            <Link
               key={item.label}
-              href={item.href}
+              to={item.href}
               className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
           
           {/* More Dropdown */}
@@ -77,14 +77,14 @@ export function Header() {
             {isMoreDropdownOpen && (
               <div className="absolute top-full left-0 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg py-2 z-50">
                 {moreDropdownItems.map((item) => (
-                  <a
+                  <Link
                     key={item.label}
-                    href={item.href}
+                    to={item.href}
                     className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
                     onClick={() => setIsMoreDropdownOpen(false)}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             )}
@@ -125,28 +125,28 @@ export function Header() {
         <div className="lg:hidden bg-background/95 backdrop-blur-lg border-b border-border">
           <nav className="w-full px-3 sm:px-6 lg:px-8 py-6 space-y-4">
             {navigationItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.href}
                 className="block text-muted-foreground hover:text-foreground transition-colors py-2 text-base font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             
             {/* Mobile More Section */}
             <div className="border-t border-border pt-4 mt-4">
               <div className="text-sm font-medium text-muted-foreground mb-3">More</div>
               {moreDropdownItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={item.href}
                   className="block py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </div>
             
