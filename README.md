@@ -2,7 +2,6 @@
 
 A modern, professional AI data labeling platform designed to connect African talent with global AI annotation opportunities. Built with React, TypeScript, and modern web technologies.
 
-![Label Africa AI Dashboard](https://res.cloudinary.com/ecosheane/image/upload/v1754217265/lable_z2geih.png)
 
 ## 🌟 Features
 
