@@ -147,7 +147,7 @@ export default function ClientDashboard() {
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
       {/* Modern Header */}
-             <header className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border-b px-4 sm:px-6 py-4 fixed top-0 left-0 sm:left-64 right-0 z-40`} style={{top: '-8px'}}>
+             <header className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border-b px-6 py-4 fixed top-0 left-16 right-0 z-40`} style={{top: '-8px'}}>
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Button
@@ -198,7 +198,7 @@ export default function ClientDashboard() {
             </Button>
 
             {/* Client Profile */}
-            <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3">
               <div className="relative group mt-1">
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center cursor-pointer">
                   <span className="text-white font-bold text-sm">CL</span>
@@ -296,13 +296,13 @@ export default function ClientDashboard() {
                         <p className={`text-sm font-medium ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Total Projects</p>
                         <p className={`text-2xl font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>{clientStats.totalProjects}</p>
                         <p className="text-xs text-green-600">+2 this month</p>
-                      </div>
+                          </div>
                       <div className="p-2 bg-blue-100 rounded-lg">
                         <FileText className="h-6 w-6 text-blue-600" />
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
 
                 <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border border-l-4 border-l-green-500`}>
                   <CardContent className="p-4">
@@ -311,13 +311,13 @@ export default function ClientDashboard() {
                         <p className={`text-sm font-medium ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Active Projects</p>
                         <p className={`text-2xl font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>{clientStats.activeProjects}</p>
                         <p className="text-xs text-green-600">In progress</p>
-                      </div>
+                          </div>
                       <div className="p-2 bg-green-100 rounded-lg">
                         <Activity className="h-6 w-6 text-green-600" />
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
 
                 <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border border-l-4 border-l-purple-500`}>
                   <CardContent className="p-4">
@@ -329,60 +329,60 @@ export default function ClientDashboard() {
                       </div>
                       <div className="p-2 bg-purple-100 rounded-lg">
                         <DollarSign className="h-6 w-6 text-purple-600" />
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
 
                 <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border border-l-4 border-l-orange-500`}>
                   <CardContent className="p-4">
-                    <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between">
                       <div>
                         <p className={`text-sm font-medium ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Avg Accuracy</p>
                         <p className={`text-2xl font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>{clientStats.avgAccuracy}%</p>
                         <p className="text-xs text-green-600">Excellent</p>
-                      </div>
+                </div>
                       <div className="p-2 bg-orange-100 rounded-lg">
                         <Shield className="h-6 w-6 text-orange-600" />
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
                 <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border border-l-4 border-l-teal-500`}>
                   <CardContent className="p-4">
-                    <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between">
                       <div>
                         <p className={`text-sm font-medium ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Completion Rate</p>
                         <p className={`text-2xl font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>{clientStats.completionRate}%</p>
                         <p className="text-xs text-green-600">On track</p>
-                      </div>
+                </div>
                       <div className="p-2 bg-teal-100 rounded-lg">
                         <CheckCircle className="h-6 w-6 text-teal-600" />
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
                 <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border border-l-4 border-l-red-500`}>
                   <CardContent className="p-4">
-                    <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between">
                       <div>
                         <p className={`text-sm font-medium ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Labelers Working</p>
                         <p className={`text-2xl font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>{clientStats.labelersWorking}</p>
                         <p className="text-xs text-green-600">Active now</p>
-                      </div>
+                </div>
                       <div className="p-2 bg-red-100 rounded-lg">
                         <Users className="h-6 w-6 text-red-600" />
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+                </div>
 
               {/* Recent Projects */}
               <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
-                <CardHeader>
+            <CardHeader>
                   <div className="flex items-center justify-between">
                     <div>
                       <CardTitle className={`text-lg font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Recent Projects</CardTitle>
@@ -390,57 +390,57 @@ export default function ClientDashboard() {
                     </div>
                     <Button variant="outline" size="sm">View All</Button>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
                     {recentProjects.map((project) => (
                       <div key={project.id} className={`flex items-center justify-between p-4 rounded-lg border ${darkMode ? 'border-gray-700 hover:bg-gray-700' : 'border-gray-200 hover:bg-gray-50'} transition-colors`}>
-                        <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-4">
                           <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
                             <FileText className="h-5 w-5 text-blue-600" />
-                          </div>
-                          <div>
+                      </div>
+                      <div>
                             <h3 className={`font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>{project.name}</h3>
                             <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{project.type}</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center space-x-6">
-                          <div className="text-right">
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-6">
+                      <div className="text-right">
                             <p className={`text-sm font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>{project.labelers} labelers</p>
                             <p className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>{project.accuracy}% accuracy</p>
-                          </div>
-                          <div className="text-right">
+                      </div>
+                      <div className="text-right">
                             <p className={`text-sm font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>${project.spent.toLocaleString()}</p>
                             <p className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>of ${project.budget.toLocaleString()}</p>
                           </div>
                           <div className="w-20">
                             <Progress value={project.progress} className="h-2" />
                             <p className={`text-xs mt-1 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>{project.progress}%</p>
-                          </div>
-                          <Badge className={`${getStatusColor(project.status)} border-0`}>
+                      </div>
+                      <Badge className={`${getStatusColor(project.status)} border-0`}>
                             {project.status}
-                          </Badge>
+                      </Badge>
                           <Button variant="ghost" size="sm">
                             <MoreVertical className="h-4 w-4" />
                           </Button>
-                        </div>
-                      </div>
-                    ))}
+                    </div>
                   </div>
+                ))}
+              </div>
                 </CardContent>
-              </Card>
+                </Card>
 
               {/* Top Labelers Working */}
               <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
-                <CardHeader>
+                  <CardHeader>
                   <CardTitle className={`text-lg font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Top Labelers Working</CardTitle>
                   <CardDescription className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Best performing labelers on your projects</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
                     {topLabelers.map((labeler, index) => (
                       <div key={labeler.name} className={`flex items-center justify-between p-3 rounded-lg border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
-                        <div className="flex items-center space-x-4">
+                          <div className="flex items-center space-x-4">
                           <div className="flex items-center space-x-2">
                             <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
                               index === 0 ? 'bg-yellow-100 text-yellow-800' :
@@ -451,8 +451,8 @@ export default function ClientDashboard() {
                               {index + 1}
                             </div>
                             {index < 3 && <Star className="h-4 w-4 text-yellow-500" />}
-                          </div>
-                          <div>
+                            </div>
+                            <div>
                             <p className={`font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>{labeler.name}</p>
                             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                               <MapPin className="h-3 w-3" />
@@ -461,34 +461,34 @@ export default function ClientDashboard() {
                           </div>
                         </div>
                         <div className="flex items-center space-x-6 text-sm">
-                          <div className="text-right">
+                            <div className="text-right">
                             <p className={`font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>{labeler.completed.toLocaleString()}</p>
                             <p className="text-muted-foreground">Completed</p>
-                          </div>
-                          <div className="text-right">
+                            </div>
+                            <div className="text-right">
                             <p className={`font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>{labeler.accuracy}%</p>
                             <p className="text-muted-foreground">Accuracy</p>
-                          </div>
+                            </div>
                           <div className="text-right">
                             <p className={`font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>{labeler.tasks.toLocaleString()}</p>
                             <p className="text-muted-foreground">Total Tasks</p>
                           </div>
+                          </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          )}
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
 
           {/* Coming Soon Pages */}
           {activeTab === "projects" && (
-            <div className="space-y-6">
+              <div className="space-y-6">
               <div className="mb-6">
                 <h1 className={`text-2xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Projects</h1>
                 <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Manage all your data annotation projects.</p>
-              </div>
+                      </div>
               <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
                 <CardContent className="p-12 text-center">
                   <FileText className="h-16 w-16 text-gray-400 mx-auto mb-4" />
@@ -496,7 +496,7 @@ export default function ClientDashboard() {
                   <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Project management features are under development.</p>
                 </CardContent>
               </Card>
-            </div>
+                      </div>
           )}
 
           {activeTab === "upload" && (
@@ -504,15 +504,15 @@ export default function ClientDashboard() {
               <div className="mb-6">
                 <h1 className={`text-2xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Upload Data</h1>
                 <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Upload your data for annotation.</p>
-              </div>
+                    </div>
               <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
                 <CardContent className="p-12 text-center">
                   <Upload className="h-16 w-16 text-gray-400 mx-auto mb-4" />
                   <h2 className={`text-xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Coming Soon</h2>
                   <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Data upload features are under development.</p>
-                </CardContent>
-              </Card>
-            </div>
+                  </CardContent>
+                </Card>
+                      </div>
           )}
 
           {activeTab === "analytics" && (
@@ -520,7 +520,7 @@ export default function ClientDashboard() {
               <div className="mb-6">
                 <h1 className={`text-2xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Analytics</h1>
                 <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Detailed project analytics and insights.</p>
-              </div>
+                            </div>
               <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
                 <CardContent className="p-12 text-center">
                   <BarChart className="h-16 w-16 text-gray-400 mx-auto mb-4" />
@@ -528,7 +528,7 @@ export default function ClientDashboard() {
                   <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Analytics dashboard is under development.</p>
                 </CardContent>
               </Card>
-            </div>
+                            </div>
           )}
 
           {activeTab === "quality" && (
@@ -536,7 +536,7 @@ export default function ClientDashboard() {
               <div className="mb-6">
                 <h1 className={`text-2xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Quality Control</h1>
                 <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Review and manage annotation quality.</p>
-              </div>
+                          </div>
               <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
                 <CardContent className="p-12 text-center">
                   <Shield className="h-16 w-16 text-gray-400 mx-auto mb-4" />
@@ -544,7 +544,7 @@ export default function ClientDashboard() {
                   <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Quality control features are under development.</p>
                 </CardContent>
               </Card>
-            </div>
+                        </div>
           )}
 
           {activeTab === "billing" && (
@@ -552,15 +552,15 @@ export default function ClientDashboard() {
               <div className="mb-6">
                 <h1 className={`text-2xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Billing</h1>
                 <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Manage your billing and payments.</p>
-              </div>
+                      </div>
               <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
                 <CardContent className="p-12 text-center">
                   <CreditCard className="h-16 w-16 text-gray-400 mx-auto mb-4" />
                   <h2 className={`text-xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Coming Soon</h2>
                   <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Billing features are under development.</p>
-                </CardContent>
-              </Card>
-            </div>
+                  </CardContent>
+                </Card>
+                      </div>
           )}
 
           {activeTab === "support" && (
@@ -568,23 +568,23 @@ export default function ClientDashboard() {
               <div className="mb-6">
                 <h1 className={`text-2xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Support</h1>
                 <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Get help and support for your projects.</p>
-              </div>
+                    </div>
               <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
                 <CardContent className="p-12 text-center">
                   <MessageSquare className="h-16 w-16 text-gray-400 mx-auto mb-4" />
                   <h2 className={`text-xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Coming Soon</h2>
                   <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Support features are under development.</p>
-                </CardContent>
-              </Card>
-            </div>
-          )}
+                  </CardContent>
+                </Card>
+              </div>
+            )}
 
                      {activeTab === "ai-models" && (
-             <div className="space-y-6">
+              <div className="space-y-6">
                <div className="mb-6">
                  <h1 className={`text-2xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>AI Models</h1>
                  <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Access and manage AI models for your projects.</p>
-               </div>
+                        </div>
                <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
                  <CardContent className="p-12 text-center">
                    <Brain className="h-16 w-16 text-gray-400 mx-auto mb-4" />
@@ -592,7 +592,7 @@ export default function ClientDashboard() {
                    <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>AI model access features are under development.</p>
                  </CardContent>
                </Card>
-             </div>
+                        </div>
            )}
 
            {activeTab === "data-pipeline" && (
@@ -600,7 +600,7 @@ export default function ClientDashboard() {
                <div className="mb-6">
                  <h1 className={`text-2xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Data Pipeline</h1>
                  <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Configure data processing and ingestion workflows.</p>
-               </div>
+                      </div>
                <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
                  <CardContent className="p-12 text-center">
                    <Database className="h-16 w-16 text-gray-400 mx-auto mb-4" />
@@ -608,7 +608,7 @@ export default function ClientDashboard() {
                    <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Data pipeline features are under development.</p>
                  </CardContent>
                </Card>
-             </div>
+                      </div>
            )}
 
            {activeTab === "workflows" && (
@@ -616,15 +616,15 @@ export default function ClientDashboard() {
                <div className="mb-6">
                  <h1 className={`text-2xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Workflows</h1>
                  <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Design and manage annotation workflows.</p>
-               </div>
+                    </div>
                <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
                  <CardContent className="p-12 text-center">
                    <Workflow className="h-16 w-16 text-gray-400 mx-auto mb-4" />
                    <h2 className={`text-xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Coming Soon</h2>
                    <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Workflow management features are under development.</p>
-                 </CardContent>
-               </Card>
-             </div>
+                  </CardContent>
+                </Card>
+                      </div>
            )}
 
            {activeTab === "api-access" && (
@@ -632,7 +632,7 @@ export default function ClientDashboard() {
                <div className="mb-6">
                  <h1 className={`text-2xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>API Access</h1>
                  <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Manage API keys and access endpoints.</p>
-               </div>
+                    </div>
                <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
                  <CardContent className="p-12 text-center">
                    <Code className="h-16 w-16 text-gray-400 mx-auto mb-4" />
@@ -640,7 +640,7 @@ export default function ClientDashboard() {
                    <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>API access features are under development.</p>
                  </CardContent>
                </Card>
-             </div>
+                      </div>
            )}
 
            {activeTab === "integrations" && (
@@ -648,7 +648,7 @@ export default function ClientDashboard() {
                <div className="mb-6">
                  <h1 className={`text-2xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Integrations</h1>
                  <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Connect with your existing tools and services.</p>
-               </div>
+                    </div>
                <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
                  <CardContent className="p-12 text-center">
                    <Link className="h-16 w-16 text-gray-400 mx-auto mb-4" />
@@ -656,7 +656,7 @@ export default function ClientDashboard() {
                    <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Integration features are under development.</p>
                  </CardContent>
                </Card>
-             </div>
+                      </div>
            )}
 
            {activeTab === "security" && (
@@ -664,14 +664,14 @@ export default function ClientDashboard() {
                <div className="mb-6">
                  <h1 className={`text-2xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Security</h1>
                  <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Manage security settings and access controls.</p>
-               </div>
+                    </div>
                <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
                  <CardContent className="p-12 text-center">
                    <Lock className="h-16 w-16 text-gray-400 mx-auto mb-4" />
                    <h2 className={`text-xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Coming Soon</h2>
                    <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Security features are under development.</p>
-                 </CardContent>
-               </Card>
+                  </CardContent>
+                </Card>
              </div>
            )}
 
@@ -686,26 +686,26 @@ export default function ClientDashboard() {
                    <FileText className="h-16 w-16 text-gray-400 mx-auto mb-4" />
                    <h2 className={`text-xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Coming Soon</h2>
                    <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Reporting features are under development.</p>
-                 </CardContent>
-               </Card>
-             </div>
-           )}
+                  </CardContent>
+                </Card>
+              </div>
+            )}
 
            {activeTab === "settings" && (
              <div className="space-y-6">
                <div className="mb-6">
                  <h1 className={`text-2xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Settings</h1>
                  <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Configure your account and preferences.</p>
-               </div>
+                  </div>
                <Card className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
                  <CardContent className="p-12 text-center">
                    <Settings className="h-16 w-16 text-gray-400 mx-auto mb-4" />
                    <h2 className={`text-xl font-medium mb-2 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>Coming Soon</h2>
                    <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Settings panel is under development.</p>
-                 </CardContent>
-               </Card>
+                </CardContent>
+              </Card>
              </div>
-           )}
+            )}
         </main>
       </div>
     </div>

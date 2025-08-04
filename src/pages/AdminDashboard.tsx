@@ -398,7 +398,7 @@ export default function AdminDashboard() {
                             <div>
                             <h3 className={`font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>{project.name}</h3>
                             <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{project.client}</p>
-                          </div>
+                            </div>
                           </div>
                           <div className="flex items-center space-x-6">
                             <div className="text-right">
@@ -468,7 +468,7 @@ export default function AdminDashboard() {
                             <div className="text-right">
                             <p className={`font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>${labeler.earnings}</p>
                               <p className="text-muted-foreground">Earned</p>
-                          </div>
+                            </div>
                           </div>
                         </div>
                       ))}
