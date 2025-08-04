@@ -251,26 +251,7 @@ export default function ClientDashboard() {
             {activeTab === "overview" && (
               <div className="space-y-6">
                 {/* Modern Stats Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  <Card className="relative overflow-hidden group hover:shadow-lg transition-all duration-300 border-0 bg-gradient-to-br from-primary/5 to-primary/10">
-                    <CardContent className="p-6">
-                      <div className="flex items-start justify-between">
-                        <div className="space-y-2">
-                          <p className="text-sm font-medium text-muted-foreground">Total Earnings</p>
-                          <p className="text-3xl font-bold tracking-tight">${(clientStats.totalEarnings / 100).toLocaleString()}</p>
-                          <div className="flex items-center space-x-2">
-                            <ArrowUpRight className="h-4 w-4 text-green-600" />
-                            <span className="text-sm text-green-600 font-medium">+{clientStats.earningsGrowth}% from last month</span>
-                          </div>
-                        </div>
-                        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                          <DollarSign className="h-6 w-6 text-primary" />
-                        </div>
-                      </div>
-                      <div className="mt-4 text-xs text-muted-foreground">Active earnings</div>
-                    </CardContent>
-                  </Card>
-
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   <Card className="relative overflow-hidden group hover:shadow-lg transition-all duration-300 border-0 bg-gradient-to-br from-green-50 to-emerald-50">
                     <CardContent className="p-6">
                       <div className="flex items-start justify-between">

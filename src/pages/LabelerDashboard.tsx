@@ -29,23 +29,31 @@ import {
   Shield,
   Activity,
   Calendar,
-  Play
+  Play,
+  Menu,
+  Bell,
+  Mail,
+  Settings as SettingsIcon,
+  LogOut,
+  Home,
+  Database,
+  BarChart,
+  Wallet,
+  Users,
+  BookOpen,
+  Award as AwardIcon,
+  Target as TargetIcon,
+  TrendingUp as TrendingUpIcon,
+  Settings as SettingsIcon2,
+  HelpCircle as HelpCircleIcon,
+  LogOut as LogOutIcon,
+  ChevronRight,
+  ChevronLeft
 } from "lucide-react"
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar"
 
 export default function LabelerDashboard() {
   const [activeTab, setActiveTab] = useState("overview")
+  const [sidebarOpen, setSidebarOpen] = useState(false)
   
   // Mock data for available tasks
   const availableTasks = [
@@ -100,21 +108,41 @@ export default function LabelerDashboard() {
   ]
 
   const menuItems = [
-    { name: "Overview", icon: BarChart3, value: "overview" },
-    { name: "Available Tasks", icon: FileText, value: "tasks" },
-    { name: "Completed Tasks", icon: CheckCircle, value: "completed" },
-    { name: "Earnings", icon: DollarSign, value: "earnings" },
-    { name: "Leaderboard", icon: Trophy, value: "leaderboard" },
-    { name: "Training", icon: Zap, value: "training" },
-    { name: "Profile", icon: User, value: "profile" },
-    { name: "Settings", icon: Settings, value: "settings" },
+    { name: "Dashboard", icon: Home, value: "overview" },
+    { name: "Projects", icon: Database, value: "projects" },
+    { name: "Tasks", icon: TargetIcon, value: "tasks" },
+    { name: "Analytics", icon: BarChart, value: "analytics" },
+    { name: "Earnings", icon: Wallet, value: "earnings" },
+    { name: "Training", icon: BookOpen, value: "training" },
+    { name: "Community", icon: Users, value: "community" },
+    { name: "Quality Score", icon: AwardIcon, value: "quality" },
+    { name: "Performance", icon: TrendingUpIcon, value: "performance" },
+    { name: "Settings", icon: SettingsIcon2, value: "settings" },
+    { name: "Help", icon: HelpCircleIcon, value: "help" },
   ]
 
   const quickStats = [
-    { label: "Today's Earnings", value: "$24.50", change: "+15%", icon: DollarSign, color: "text-green-600" },
-    { label: "Tasks Completed", value: "47", change: "+8%", icon: CheckCircle, color: "text-blue-600" },
-    { label: "Accuracy Rate", value: "98.9%", change: "+0.2%", icon: Shield, color: "text-purple-600" },
-    { label: "Current Rank", value: "#47", change: "+3", icon: Trophy, color: "text-orange-600" }
+    {
+      label: "Tasks Completed",
+      value: "2,847",
+      change: "+18% from last month",
+      color: "text-green-600",
+      icon: CheckCircle
+    },
+    {
+      label: "Current Rank",
+      value: "#47",
+      change: "Top 5% of labelers",
+      color: "text-blue-600",
+      icon: Trophy
+    },
+    {
+      label: "Available Tasks",
+      value: "47",
+      change: "Premium tasks available",
+      color: "text-purple-600",
+      icon: Activity
+    }
   ]
 
   const getTaskIcon = (type: string) => {
@@ -137,283 +165,601 @@ export default function LabelerDashboard() {
   }
 
   return (
-    <SidebarProvider>
-      <div className="min-h-screen flex w-full bg-background">
-        {/* Sidebar */}
-        <Sidebar className="border-r">
-          <SidebarContent>
-            {/* Logo */}
-            <div className="p-6 border-b border-border">
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-sm">LA</span>
-                </div>
-                <div>
-                  <span className="font-semibold text-lg">Label</span>
-                  <div className="text-xs text-muted-foreground">Labeler Portal</div>
-                </div>
-              </div>
+    <div className="min-h-screen bg-gray-50">
+      {/* Modern Header */}
+      <header className="bg-white border-b border-gray-200 px-6 py-4 fixed top-0 left-16 right-0 z-40" style={{top: '-8px'}}>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-4">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              className="lg:hidden"
+            >
+              <Menu className="h-5 w-5" />
+            </Button>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            {/* Search */}
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Input placeholder="Search..." className="pl-10 w-80 border-0 bg-gray-100 text-gray-600 placeholder-gray-400 focus:border-0 focus:ring-0 hover:bg-gray-200 transition-colors duration-200" />
             </div>
 
-            <SidebarGroup>
-              <SidebarGroupLabel>Main Navigation</SidebarGroupLabel>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  {menuItems.map((item) => (
-                    <SidebarMenuItem key={item.name}>
-                      <SidebarMenuButton 
-                        isActive={activeTab === item.value}
-                        onClick={() => setActiveTab(item.value)}
-                      >
-                        <item.icon className="h-4 w-4" />
-                        <span>{item.name}</span>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  ))}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>
+            {/* Notifications */}
+            <Button variant="ghost" size="sm" className="relative p-2 hover:bg-transparent">
+              <Bell className="h-6 w-6 text-gray-700" />
+              <Badge className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-transparent text-xs text-gray-800 flex items-center justify-center font-semibold">
+                3
+              </Badge>
+            </Button>
 
             {/* User Profile */}
-            <div className="mt-auto p-4 border-t border-border">
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-sm">JD</span>
+            <div className="flex items-center  space-x-3">
+              <div className="relative group mt-1">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center cursor-pointer">
+                  <span className="text-white font-bold text-sm">JD</span>
                 </div>
-                <div className="flex-1">
-                  <p className="text-sm font-medium">John Doe</p>
-                  <p className="text-xs text-muted-foreground">Expert Labeler</p>
+                
+                {/* Dropdown on hover */}
+                <div className="absolute right-0 top-full  w-48 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none group-hover:pointer-events-auto z-50">
+                  <div className="p-3 border-b border-gray-100">
+                    <p className="text-sm font-medium text-gray-900">John Doe</p>
+                    <p className="text-xs text-gray-500">Expert Labeler</p>
+                  </div>
+                  <div className="p-1">
+                    <button className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md">
+                      Profile
+                    </button>
+                    <button className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md">
+                      Settings
+                    </button>
+                    <button className="w-full text-left px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-md">
+                      Sign out
+                    </button>
+                  </div>
                 </div>
-                <ChevronDown className="h-4 w-4 text-muted-foreground" />
               </div>
             </div>
-          </SidebarContent>
-        </Sidebar>
+          </div>
+        </div>
+      </header>
+
+      <div className="flex pt-16">
+        {/* Modern Sidebar */}
+        <aside className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 fixed inset-y-0 left-0 z-50 w-16 bg-white border-r border-gray-200 transform transition-all duration-200 ease-in-out group hover:w-48 overflow-hidden shadow-lg`}>
+          <div className="flex flex-col h-full">
+            {/* Logo */}
+            <div className="p-4 border-b border-gray-200">
+              <div className="flex justify-center group-hover:justify-start group-hover:pl-3">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-bold text-sm">LA</span>
+                </div>
+                
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <nav className="flex-1 px-2 py-6 space-y-1">
+              {menuItems.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => setActiveTab(item.value)}
+                  className={`w-full flex items-center justify-center group-hover:justify-start group-hover:pl-3 group-hover:pr-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    activeTab === item.value
+                      ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                  }`}
+                >
+                  <item.icon className="h-4 w-4 flex-shrink-0" />
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap ml-3 min-w-0">{item.name}</span>
+                </button>
+              ))}
+            </nav>
+          </div>
+        </aside>
 
         {/* Main Content */}
-        <div className="flex-1 flex flex-col">
-          {/* Header */}
-          <header className="h-16 border-b border-border bg-card px-6 flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <SidebarTrigger />
-              <div>
-                <h1 className="text-xl font-semibold">Labeler Dashboard</h1>
-                <p className="text-sm text-muted-foreground">Track your tasks and earnings</p>
+        <main className="flex-1 p-6 ml-16 lg:ml-16">
+          {activeTab === "overview" && (
+            <div className="space-y-6">
+              {/* Welcome Section */}
+              <div className="mb-6">
+                <h1 className="text-2xl font-bold text-gray-900 mb-2">Welcome back, John</h1>
+                <p className="text-gray-600">Here's your annotation overview for today.</p>
               </div>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="text-right">
-                <p className="text-lg font-light">$127.50</p>
-                <p className="text-xs text-muted-foreground">Available balance</p>
-              </div>
-              <Button className="bg-primary hover:bg-primary/90">
-                Withdraw
-              </Button>
-            </div>
-          </header>
 
-          {/* Content */}
-          <div className="flex-1 p-6">
-            {activeTab === "overview" && (
-              <div className="space-y-6">
-                {/* Quick Stats */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {quickStats.map((stat) => (
-                    <Card key={stat.label} className="hover:shadow-md transition-shadow">
-                      <CardContent className="p-4">
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <p className="text-sm text-muted-foreground">{stat.label}</p>
-                            <p className="text-2xl font-bold">{stat.value}</p>
-                            <p className={`text-xs ${stat.color}`}>{stat.change}</p>
-                          </div>
-                          <stat.icon className={`h-8 w-8 ${stat.color}`} />
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-
-                {/* Featured Tasks */}
-                <Card>
-                  <CardHeader>
+              {/* Key Metrics */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <Card className="bg-white border border-gray-200">
+                  <CardContent className="p-4">
                     <div className="flex items-center justify-between">
                       <div>
-                        <CardTitle>Featured Tasks</CardTitle>
-                        <CardDescription>High-paying opportunities available now</CardDescription>
+                        <p className="text-sm font-medium text-gray-600">Tasks Completed</p>
+                        <p className="text-2xl font-bold text-gray-900">247</p>
+                        <p className="text-xs text-green-600">+12% from yesterday</p>
                       </div>
-                      <Button variant="outline" size="sm">View All</Button>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {availableTasks.slice(0, 2).map((task) => (
-                        <div key={task.id} className="p-4 rounded-lg border hover:bg-muted/50 transition-colors">
-                          <div className="flex items-center space-x-3 mb-3">
-                            <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                              {getTaskIcon(task.type)}
-                            </div>
-                            <div>
-                              <h3 className="font-medium text-sm">{task.title}</h3>
-                              <p className="text-xs text-muted-foreground">${task.payment}/task</p>
-                            </div>
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <Badge className={`${getDifficultyColor(task.difficulty)} text-xs border-0`}>
-                              {task.difficulty}
-                            </Badge>
-                            <Button size="sm" className="h-7">
-                              <Play className="mr-1 h-3 w-3" />
-                              Start
-                            </Button>
-                          </div>
-                        </div>
-                      ))}
+                      <div className="p-2 bg-green-100 rounded-lg">
+                        <CheckCircle className="h-6 w-6 text-green-600" />
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
 
-                {/* Performance Overview */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="border-l-4 border-l-green-500">
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-lg font-medium">Total Earnings</CardTitle>
-                  <DollarSign className="h-5 w-5 text-green-600" />
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2">
-                  <div className="text-2xl font-light">$1,247.50</div>
-                  <div className="text-sm text-muted-foreground">+12.5% from last month</div>
-                  <div className="flex items-center space-x-2 text-xs">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span>Active earnings</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                <Card className="bg-white border border-gray-200">
+                  <CardContent className="p-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-sm font-medium text-gray-600">Quality Score</p>
+                        <p className="text-2xl font-bold text-gray-900">98.2%</p>
+                        <p className="text-xs text-blue-600">Excellent</p>
+                      </div>
+                      <div className="p-2 bg-blue-100 rounded-lg">
+                        <Award className="h-6 w-6 text-blue-600" />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
 
-            <Card className="border-l-4 border-l-blue-500">
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-lg font-medium">Tasks Completed</CardTitle>
-                  <CheckCircle className="h-5 w-5 text-blue-600" />
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2">
-                  <div className="text-2xl font-light">2,847</div>
-                  <div className="text-sm text-muted-foreground">+18% from last month</div>
-                  <div className="flex items-center space-x-2 text-xs">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span>98.5% accuracy</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                <Card className="bg-white border border-gray-200">
+                  <CardContent className="p-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-sm font-medium text-gray-600">Today's Earnings</p>
+                        <p className="text-2xl font-bold text-gray-900">$45.20</p>
+                        <p className="text-xs text-green-600">+$8.50 from yesterday</p>
+                      </div>
+                      <div className="p-2 bg-purple-100 rounded-lg">
+                        <DollarSign className="h-6 w-6 text-purple-600" />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
 
-            <Card className="border-l-4 border-l-purple-500">
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-lg font-medium">Current Rank</CardTitle>
-                  <Trophy className="h-5 w-5 text-purple-600" />
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2">
-                  <div className="text-2xl font-light">#47</div>
-                  <div className="text-sm text-muted-foreground">Top 5% of labelers</div>
-                  <div className="flex items-center space-x-2 text-xs">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                    <span>Expert level</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-l-4 border-l-orange-500">
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-lg font-medium">Available Tasks</CardTitle>
-                  <FileText className="h-5 w-5 text-orange-600" />
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2">
-                  <div className="text-2xl font-light">450</div>
-                  <div className="text-sm text-muted-foreground">Ready to start</div>
-                  <div className="flex items-center space-x-2 text-xs">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                    <span>Multiple types</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-                </div>
+                <Card className="bg-white border border-gray-200">
+                  <CardContent className="p-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-sm font-medium text-gray-600">Available Tasks</p>
+                        <p className="text-2xl font-bold text-gray-900">23</p>
+                        <p className="text-xs text-orange-600">High priority</p>
+                      </div>
+                      <div className="p-2 bg-orange-100 rounded-lg">
+                        <Target className="h-6 w-6 text-orange-600" />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
-            )}
 
-            {activeTab === "tasks" && (
-              <div className="space-y-6">
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <div className="flex-1 relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input placeholder="Search available tasks..." className="pl-10" />
-                  </div>
-                  <Button variant="outline" className="w-full sm:w-auto">
-                    <Filter className="mr-2 h-4 w-4" />
-                    Filter
-                  </Button>
-                </div>
-
-                <Card>
+              {/* Task Queue and Recent Activity */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Current Task Queue */}
+                <Card className="bg-white border border-gray-200">
                   <CardHeader>
-                    <CardTitle>Available Tasks</CardTitle>
-                    <CardDescription>Choose from available tasks and start earning</CardDescription>
+                    <CardTitle className="text-lg font-semibold text-gray-900">Current Task Queue</CardTitle>
+                    <CardDescription>Your next annotation tasks</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 bg-blue-100 rounded-lg">
+                            <Image className="h-4 w-4 text-blue-600" />
+                          </div>
+                          <div>
+                            <p className="font-medium text-gray-900">Image Classification</p>
+                            <p className="text-sm text-gray-600">Wildlife photos • 150 remaining</p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <p className="font-semibold text-gray-900">$0.25</p>
+                          <p className="text-xs text-gray-500">per task</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 bg-green-100 rounded-lg">
+                            <Mic className="h-4 w-4 text-green-600" />
+                          </div>
+                          <div>
+                            <p className="font-medium text-gray-900">Audio Transcription</p>
+                            <p className="text-sm text-gray-600">Swahili conversations • 75 remaining</p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <p className="font-semibold text-gray-900">$0.50</p>
+                          <p className="text-xs text-gray-500">per task</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between p-3 bg-purple-50 rounded-lg border border-purple-200">
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 bg-purple-100 rounded-lg">
+                            <FileText className="h-4 w-4 text-purple-600" />
+                          </div>
+                          <div>
+                            <p className="font-medium text-gray-900">Text Classification</p>
+                            <p className="text-sm text-gray-600">Agricultural data • 200 remaining</p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <p className="font-semibold text-gray-900">$0.15</p>
+                          <p className="text-xs text-gray-500">per task</p>
+                        </div>
+                      </div>
+                    </div>
+                    <Button className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white">
+                      Start Next Task
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                {/* Recent Activity */}
+                <Card className="bg-white border border-gray-200">
+                  <CardHeader>
+                    <CardTitle className="text-lg font-semibold text-gray-900">Recent Activity</CardTitle>
+                    <CardDescription>Your latest annotation work</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      {availableTasks.map((task) => (
-                        <div key={task.id} className="flex flex-col lg:flex-row lg:items-center justify-between p-4 rounded-lg border hover:bg-muted/50 transition-colors space-y-4 lg:space-y-0">
-                          <div className="flex items-center space-x-4">
-                            <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
-                              {getTaskIcon(task.type)}
-                            </div>
-                            <div>
-                              <h3 className="font-medium">{task.title}</h3>
-                              <p className="text-sm text-muted-foreground">{task.description}</p>
-                              <div className="flex items-center space-x-4 mt-1">
-                                <span className="text-xs text-muted-foreground">{task.timeEstimate}</span>
-                                <Badge className={`${getDifficultyColor(task.difficulty)} text-xs border-0`}>
-                                  {task.difficulty}
-                                </Badge>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex flex-row lg:flex-row items-center space-x-4 lg:space-x-6">
-                            <div className="text-center lg:text-right">
-                              <p className="text-sm font-medium">${task.payment}</p>
-                              <p className="text-xs text-muted-foreground">per task</p>
-                            </div>
-                            <div className="text-center lg:text-right">
-                              <p className="text-sm font-medium">{task.remaining}</p>
-                              <p className="text-xs text-muted-foreground">remaining</p>
-                            </div>
-                            <Button className="bg-primary hover:bg-primary/90 w-full lg:w-auto">
-                              Start Task
-                            </Button>
-                          </div>
+                      <div className="flex items-center space-x-3">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <div className="flex-1">
+                          <p className="text-sm font-medium text-gray-900">Completed 25 image classifications</p>
+                          <p className="text-xs text-gray-500">2 minutes ago • Quality: 98%</p>
                         </div>
-                      ))}
+                        <span className="text-sm font-medium text-green-600">+$6.25</span>
+                      </div>
+
+                      <div className="flex items-center space-x-3">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        <div className="flex-1">
+                          <p className="text-sm font-medium text-gray-900">Completed 12 audio transcriptions</p>
+                          <p className="text-xs text-gray-500">15 minutes ago • Quality: 97%</p>
+                        </div>
+                        <span className="text-sm font-medium text-blue-600">+$6.00</span>
+                      </div>
+
+                      <div className="flex items-center space-x-3">
+                        <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                        <div className="flex-1">
+                          <p className="text-sm font-medium text-gray-900">Completed 30 text classifications</p>
+                          <p className="text-xs text-gray-500">1 hour ago • Quality: 99%</p>
+                        </div>
+                        <span className="text-sm font-medium text-purple-600">+$4.50</span>
+                      </div>
+
+                      <div className="flex items-center space-x-3">
+                        <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                        <div className="flex-1">
+                          <p className="text-sm font-medium text-gray-900">Quality review completed</p>
+                          <p className="text-xs text-gray-500">2 hours ago • Score: 98.2%</p>
+                        </div>
+                        <span className="text-sm font-medium text-orange-600">Excellent</span>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
               </div>
-            )}
-          </div>
-        </div>
+
+              {/* Quality Performance */}
+              <Card className="bg-white border border-gray-200">
+                <CardHeader>
+                  <CardTitle className="text-lg font-semibold text-gray-900">Quality Performance</CardTitle>
+                  <CardDescription>Your annotation accuracy and performance metrics</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="border border-gray-200 rounded-lg p-4">
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="text-sm font-medium text-gray-900">Overall Accuracy</h3>
+                        <span className="text-2xl font-bold text-gray-900">98.2%</span>
+                      </div>
+                      <div className="relative h-20 mb-2">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <svg className="w-16 h-16 transform -rotate-90">
+                            <circle
+                              cx="32"
+                              cy="32"
+                              r="28"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                              fill="transparent"
+                              className="text-gray-200"
+                            />
+                            <circle
+                              cx="32"
+                              cy="32"
+                              r="28"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                              fill="transparent"
+                              className="text-green-500"
+                              strokeDasharray={`${2 * Math.PI * 28}`}
+                              strokeDashoffset={`${2 * Math.PI * 28 * (1 - 0.982)}`}
+                              strokeLinecap="round"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-xs text-gray-500 text-center">Last 30 days</p>
+                    </div>
+                    
+                    <div className="border border-gray-200 rounded-lg p-4">
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="text-sm font-medium text-gray-900">Image Classification</h3>
+                        <span className="text-2xl font-bold text-gray-900">99.1%</span>
+                      </div>
+                      <div className="relative h-20 mb-2">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <svg className="w-16 h-16 transform -rotate-90">
+                            <circle
+                              cx="32"
+                              cy="32"
+                              r="28"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                              fill="transparent"
+                              className="text-gray-200"
+                            />
+                            <circle
+                              cx="32"
+                              cy="32"
+                              r="28"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                              fill="transparent"
+                              className="text-blue-500"
+                              strokeDasharray={`${2 * Math.PI * 28}`}
+                              strokeDashoffset={`${2 * Math.PI * 28 * (1 - 0.991)}`}
+                              strokeLinecap="round"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-xs text-gray-500 text-center">Accuracy rate</p>
+                    </div>
+                    
+                    <div className="border border-gray-200 rounded-lg p-4">
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="text-sm font-medium text-gray-900">Audio Transcription</h3>
+                        <span className="text-2xl font-bold text-gray-900">97.8%</span>
+                      </div>
+                      <div className="relative h-20 mb-2">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <svg className="w-16 h-16 transform -rotate-90">
+                            <circle
+                              cx="32"
+                              cy="32"
+                              r="28"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                              fill="transparent"
+                              className="text-gray-200"
+                            />
+                            <circle
+                              cx="32"
+                              cy="32"
+                              r="28"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                              fill="transparent"
+                              className="text-purple-500"
+                              strokeDasharray={`${2 * Math.PI * 28}`}
+                              strokeDashoffset={`${2 * Math.PI * 28 * (1 - 0.978)}`}
+                              strokeLinecap="round"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-xs text-gray-500 text-center">Accuracy rate</p>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="border border-gray-200 rounded-lg p-4">
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="text-sm font-medium text-gray-900">Task Completion Trend</h3>
+                        <span className="text-lg font-semibold text-gray-900">2.3 min</span>
+                      </div>
+                      <div className="h-20 flex items-end space-x-1">
+                        <div className="flex-1 bg-gray-200 rounded-t" style={{height: '60%'}}></div>
+                        <div className="flex-1 bg-gray-200 rounded-t" style={{height: '75%'}}></div>
+                        <div className="flex-1 bg-gray-200 rounded-t" style={{height: '85%'}}></div>
+                        <div className="flex-1 bg-gray-200 rounded-t" style={{height: '70%'}}></div>
+                        <div className="flex-1 bg-gray-200 rounded-t" style={{height: '90%'}}></div>
+                        <div className="flex-1 bg-gray-200 rounded-t" style={{height: '95%'}}></div>
+                        <div className="flex-1 bg-green-500 rounded-t" style={{height: '100%'}}></div>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-2">Last 7 days</p>
+                    </div>
+                    
+                    <div className="border border-gray-200 rounded-lg p-4">
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="text-sm font-medium text-gray-900">Quality Score Trend</h3>
+                        <span className="text-lg font-semibold text-gray-900">96.5%</span>
+                      </div>
+                      <div className="h-20 flex items-end space-x-1">
+                        <div className="flex-1 bg-gray-200 rounded-t" style={{height: '92%'}}></div>
+                        <div className="flex-1 bg-gray-200 rounded-t" style={{height: '94%'}}></div>
+                        <div className="flex-1 bg-gray-200 rounded-t" style={{height: '93%'}}></div>
+                        <div className="flex-1 bg-gray-200 rounded-t" style={{height: '95%'}}></div>
+                        <div className="flex-1 bg-gray-200 rounded-t" style={{height: '97%'}}></div>
+                        <div className="flex-1 bg-gray-200 rounded-t" style={{height: '96%'}}></div>
+                        <div className="flex-1 bg-blue-500 rounded-t" style={{height: '96.5%'}}></div>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-2">Last 7 days</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+
+          {activeTab === "projects" && (
+            <div className="space-y-6">
+              <div className="mb-6">
+                <h1 className="text-2xl font-bold text-gray-900 mb-2">Projects</h1>
+                <p className="text-gray-600">Manage your annotation projects and assignments.</p>
+              </div>
+              <Card className="bg-white border border-gray-200">
+                <CardContent className="p-12 text-center">
+                  <Database className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                  <h2 className="text-xl font-semibold text-gray-900 mb-2">Coming Soon</h2>
+                  <p className="text-gray-600">Project management features are under development.</p>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+
+          {activeTab === "tasks" && (
+            <div className="space-y-6">
+              <div className="mb-6">
+                <h1 className="text-2xl font-bold text-gray-900 mb-2">Tasks</h1>
+                <p className="text-gray-600">View and manage your annotation tasks.</p>
+              </div>
+              <Card className="bg-white border border-gray-200">
+                <CardContent className="p-12 text-center">
+                  <TargetIcon className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                  <h2 className="text-xl font-semibold text-gray-900 mb-2">Coming Soon</h2>
+                  <p className="text-gray-600">Task management features are under development.</p>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+
+          {activeTab === "analytics" && (
+            <div className="space-y-6">
+              <div className="mb-6">
+                <h1 className="text-2xl font-bold text-gray-900 mb-2">Analytics</h1>
+                <p className="text-gray-600">Detailed performance analytics and insights.</p>
+              </div>
+              <Card className="bg-white border border-gray-200">
+                <CardContent className="p-12 text-center">
+                  <BarChart className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                  <h2 className="text-xl font-semibold text-gray-900 mb-2">Coming Soon</h2>
+                  <p className="text-gray-600">Analytics dashboard is under development.</p>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+
+          {activeTab === "earnings" && (
+            <div className="space-y-6">
+              <div className="mb-6">
+                <h1 className="text-2xl font-bold text-gray-900 mb-2">Earnings</h1>
+                <p className="text-gray-600">Track your earnings and payment history.</p>
+              </div>
+              <Card className="bg-white border border-gray-200">
+                <CardContent className="p-12 text-center">
+                  <Wallet className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                  <h2 className="text-xl font-semibold text-gray-900 mb-2">Coming Soon</h2>
+                  <p className="text-gray-600">Earnings tracking features are under development.</p>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+
+          {activeTab === "training" && (
+            <div className="space-y-6">
+              <div className="mb-6">
+                <h1 className="text-2xl font-bold text-gray-900 mb-2">Training</h1>
+                <p className="text-gray-600">Access training materials and improve your skills.</p>
+              </div>
+              <Card className="bg-white border border-gray-200">
+                <CardContent className="p-12 text-center">
+                  <BookOpen className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                  <h2 className="text-xl font-semibold text-gray-900 mb-2">Coming Soon</h2>
+                  <p className="text-gray-600">Training platform is under development.</p>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+
+          {activeTab === "community" && (
+            <div className="space-y-6">
+              <div className="mb-6">
+                <h1 className="text-2xl font-bold text-gray-900 mb-2">Community</h1>
+                <p className="text-gray-600">Connect with other labelers and share experiences.</p>
+              </div>
+              <Card className="bg-white border border-gray-200">
+                <CardContent className="p-12 text-center">
+                  <Users className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                  <h2 className="text-xl font-semibold text-gray-900 mb-2">Coming Soon</h2>
+                  <p className="text-gray-600">Community features are under development.</p>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+
+          {activeTab === "quality" && (
+            <div className="space-y-6">
+              <div className="mb-6">
+                <h1 className="text-2xl font-bold text-gray-900 mb-2">Quality Score</h1>
+                <p className="text-gray-600">Monitor your quality metrics and performance.</p>
+              </div>
+              <Card className="bg-white border border-gray-200">
+                <CardContent className="p-12 text-center">
+                  <AwardIcon className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                  <h2 className="text-xl font-semibold text-gray-900 mb-2">Coming Soon</h2>
+                  <p className="text-gray-600">Quality score dashboard is under development.</p>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+
+          {activeTab === "performance" && (
+            <div className="space-y-6">
+              <div className="mb-6">
+                <h1 className="text-2xl font-bold text-gray-900 mb-2">Performance</h1>
+                <p className="text-gray-600">Track your performance metrics and improvements.</p>
+              </div>
+              <Card className="bg-white border border-gray-200">
+                <CardContent className="p-12 text-center">
+                  <TrendingUpIcon className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                  <h2 className="text-xl font-semibold text-gray-900 mb-2">Coming Soon</h2>
+                  <p className="text-gray-600">Performance tracking features are under development.</p>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+
+          {activeTab === "settings" && (
+            <div className="space-y-6">
+              <div className="mb-6">
+                <h1 className="text-2xl font-bold text-gray-900 mb-2">Settings</h1>
+                <p className="text-gray-600">Configure your account and preferences.</p>
+              </div>
+              <Card className="bg-white border border-gray-200">
+                <CardContent className="p-12 text-center">
+                  <SettingsIcon2 className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                  <h2 className="text-xl font-semibold text-gray-900 mb-2">Coming Soon</h2>
+                  <p className="text-gray-600">Settings panel is under development.</p>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+
+          {activeTab === "help" && (
+            <div className="space-y-6">
+              <div className="mb-6">
+                <h1 className="text-2xl font-bold text-gray-900 mb-2">Help & Support</h1>
+                <p className="text-gray-600">Get help and access support resources.</p>
+              </div>
+              <Card className="bg-white border border-gray-200">
+                <CardContent className="p-12 text-center">
+                  <HelpCircleIcon className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                  <h2 className="text-xl font-semibold text-gray-900 mb-2">Coming Soon</h2>
+                  <p className="text-gray-600">Help and support features are under development.</p>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+        </main>
       </div>
-    </SidebarProvider>
+    </div>
   )
 }
