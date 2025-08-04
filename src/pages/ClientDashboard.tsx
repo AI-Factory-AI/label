@@ -31,8 +31,41 @@ import {
   MoreVertical,
   Calendar,
   Layers,
-  Database
+  Database,
+  ExternalLink,
+  Code,
+  Copy,
+  Key,
+  Webhook,
+  Activity,
+  CreditCard,
+  Bell,
+  Lock,
+  ArrowUpRight,
+  Sparkles,
+  Crown,
+  Star,
+  Trophy
 } from "lucide-react"
+import { 
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { 
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Label } from "@/components/ui/label"
+import { Switch } from "@/components/ui/switch"
+import { Textarea } from "@/components/ui/textarea"
 import {
   Sidebar,
   SidebarContent,
@@ -93,11 +126,23 @@ export default function ClientDashboard() {
     { name: "Projects", icon: FileText, value: "projects" },
     { name: "Upload Data", icon: Upload, value: "upload" },
     { name: "Analytics", icon: TrendingUp, value: "analytics" },
+    { name: "API & Integration", icon: Code, value: "api" },
     { name: "Quality Control", icon: Shield, value: "quality" },
     { name: "Billing", icon: DollarSign, value: "billing" },
     { name: "Settings", icon: Settings, value: "settings" },
     { name: "Help", icon: HelpCircle, value: "help" },
   ]
+
+  const clientStats = {
+    totalEarnings: 124750,
+    earningsGrowth: 12.5,
+    tasksCompleted: 2847,
+    tasksGrowth: 18,
+    accuracy: 98.5,
+    currentRank: 47,
+    rankPercent: 5,
+    level: "Expert"
+  }
 
   const datasetTypes = [
     { name: "Image Classification", icon: Eye, count: 45, color: "bg-blue-500" },
@@ -205,6 +250,85 @@ export default function ClientDashboard() {
           <div className="flex-1 p-6">
             {activeTab === "overview" && (
               <div className="space-y-6">
+                {/* Modern Stats Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <Card className="relative overflow-hidden group hover:shadow-lg transition-all duration-300 border-0 bg-gradient-to-br from-primary/5 to-primary/10">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="space-y-2">
+                          <p className="text-sm font-medium text-muted-foreground">Total Earnings</p>
+                          <p className="text-3xl font-bold tracking-tight">${(clientStats.totalEarnings / 100).toLocaleString()}</p>
+                          <div className="flex items-center space-x-2">
+                            <ArrowUpRight className="h-4 w-4 text-green-600" />
+                            <span className="text-sm text-green-600 font-medium">+{clientStats.earningsGrowth}% from last month</span>
+                          </div>
+                        </div>
+                        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <DollarSign className="h-6 w-6 text-primary" />
+                        </div>
+                      </div>
+                      <div className="mt-4 text-xs text-muted-foreground">Active earnings</div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="relative overflow-hidden group hover:shadow-lg transition-all duration-300 border-0 bg-gradient-to-br from-green-50 to-emerald-50">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="space-y-2">
+                          <p className="text-sm font-medium text-muted-foreground">Tasks Completed</p>
+                          <p className="text-3xl font-bold tracking-tight">{clientStats.tasksCompleted.toLocaleString()}</p>
+                          <div className="flex items-center space-x-2">
+                            <ArrowUpRight className="h-4 w-4 text-green-600" />
+                            <span className="text-sm text-green-600 font-medium">+{clientStats.tasksGrowth}% from last month</span>
+                          </div>
+                        </div>
+                        <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center group-hover:bg-green-200 transition-colors">
+                          <CheckCircle className="h-6 w-6 text-green-600" />
+                        </div>
+                      </div>
+                      <div className="mt-4 text-xs text-muted-foreground">{clientStats.accuracy}% accuracy</div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="relative overflow-hidden group hover:shadow-lg transition-all duration-300 border-0 bg-gradient-to-br from-blue-50 to-cyan-50">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="space-y-2">
+                          <p className="text-sm font-medium text-muted-foreground">Current Rank</p>
+                          <p className="text-3xl font-bold tracking-tight">#{clientStats.currentRank}</p>
+                          <div className="flex items-center space-x-2">
+                            <Crown className="h-4 w-4 text-blue-600" />
+                            <span className="text-sm text-blue-600 font-medium">Top {clientStats.rankPercent}% of labelers</span>
+                          </div>
+                        </div>
+                        <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+                          <Trophy className="h-6 w-6 text-blue-600" />
+                        </div>
+                      </div>
+                      <div className="mt-4 text-xs text-muted-foreground">{clientStats.level} level</div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="relative overflow-hidden group hover:shadow-lg transition-all duration-300 border-0 bg-gradient-to-br from-purple-50 to-violet-50">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="space-y-2">
+                          <p className="text-sm font-medium text-muted-foreground">Available Tasks</p>
+                          <p className="text-3xl font-bold tracking-tight">47</p>
+                          <div className="flex items-center space-x-2">
+                            <Sparkles className="h-4 w-4 text-purple-600" />
+                            <span className="text-sm text-purple-600 font-medium">Premium tasks available</span>
+                          </div>
+                        </div>
+                        <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center group-hover:bg-purple-200 transition-colors">
+                          <Activity className="h-6 w-6 text-purple-600" />
+                        </div>
+                      </div>
+                      <div className="mt-4 text-xs text-muted-foreground">High-value projects</div>
+                    </CardContent>
+                  </Card>
+                </div>
+
                 {/* Quick Actions */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   {datasetTypes.map((type) => (
@@ -316,9 +440,32 @@ export default function ClientDashboard() {
                         {getStatusIcon(project.status)}
                         <span className="ml-1 capitalize">{project.status.replace('_', ' ')}</span>
                       </Badge>
-                      <Button variant="ghost" size="sm">
-                        <Download className="h-4 w-4" />
-                      </Button>
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button variant="ghost" size="sm">
+                            <MoreVertical className="h-4 w-4" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DropdownMenuItem>
+                            <Eye className="mr-2 h-4 w-4" />
+                            View Details
+                          </DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <Download className="mr-2 h-4 w-4" />
+                            Export Data
+                          </DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <ExternalLink className="mr-2 h-4 w-4" />
+                            API Access
+                          </DropdownMenuItem>
+                          <DropdownMenuSeparator />
+                          <DropdownMenuItem>
+                            <Edit className="mr-2 h-4 w-4" />
+                            Edit Project
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
                     </div>
                   </div>
                 ))}
@@ -387,6 +534,172 @@ export default function ClientDashboard() {
                         </div>
                       ))}
                     </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
+
+            {activeTab === "api" && (
+              <div className="space-y-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                      <Code className="h-5 w-5" />
+                      <span>API Keys</span>
+                    </CardTitle>
+                    <CardDescription>Manage your API keys for programmatic access</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="flex items-center justify-between p-4 border rounded-lg">
+                      <div className="space-y-1">
+                        <p className="font-medium">Production API Key</p>
+                        <p className="text-sm text-muted-foreground">sk-prod-•••••••••••••••••••••••••••••••••••••••••••</p>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Button variant="outline" size="sm">
+                          <Copy className="h-4 w-4" />
+                        </Button>
+                        <Button variant="outline" size="sm">
+                          <Key className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </div>
+                    <Button>
+                      <Plus className="mr-2 h-4 w-4" />
+                      Create New API Key
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                      <Webhook className="h-5 w-5" />
+                      <span>Webhooks</span>
+                    </CardTitle>
+                    <CardDescription>Configure webhooks for real-time notifications</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-4">
+                      <div>
+                        <Label htmlFor="webhook-url">Webhook URL</Label>
+                        <Input id="webhook-url" placeholder="https://your-api.com/webhooks" />
+                      </div>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <Label>Events</Label>
+                          <div className="space-y-2">
+                            <div className="flex items-center space-x-2">
+                              <Switch id="project-completed" />
+                              <Label htmlFor="project-completed" className="text-sm">Project Completed</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <Switch id="task-updated" />
+                              <Label htmlFor="task-updated" className="text-sm">Task Updated</Label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <Button>Save Webhook</Button>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle>API Documentation</CardTitle>
+                    <CardDescription>Complete API reference and examples</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div className="p-4 bg-muted rounded-lg">
+                        <h4 className="font-medium mb-2">Quick Start</h4>
+                        <pre className="text-sm bg-background p-3 rounded border overflow-x-auto">
+{`curl -X GET https://api.label.africa/v1/projects \\
+  -H "Authorization: Bearer YOUR_API_KEY"`}
+                        </pre>
+                      </div>
+                      <Button variant="outline">
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        View Full Documentation
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
+
+            {activeTab === "settings" && (
+              <div className="space-y-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Account Settings</CardTitle>
+                    <CardDescription>Manage your account preferences</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="company-name">Company Name</Label>
+                          <Input id="company-name" defaultValue="Acme Corp" />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="contact-email">Contact Email</Label>
+                          <Input id="contact-email" defaultValue="admin@acmecorp.com" />
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="description">Company Description</Label>
+                        <Textarea id="description" placeholder="Tell us about your company..." />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Notifications</CardTitle>
+                    <CardDescription>Configure how you receive updates</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-0.5">
+                        <Label>Email Notifications</Label>
+                        <p className="text-sm text-muted-foreground">Receive project updates via email</p>
+                      </div>
+                      <Switch defaultChecked />
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-0.5">
+                        <Label>Push Notifications</Label>
+                        <p className="text-sm text-muted-foreground">Browser notifications for urgent updates</p>
+                      </div>
+                      <Switch />
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-0.5">
+                        <Label>Weekly Reports</Label>
+                        <p className="text-sm text-muted-foreground">Summary of your projects and performance</p>
+                      </div>
+                      <Switch defaultChecked />
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Security</CardTitle>
+                    <CardDescription>Manage your account security</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <Button variant="outline">
+                      <Lock className="mr-2 h-4 w-4" />
+                      Change Password
+                    </Button>
+                    <Button variant="outline">
+                      <Shield className="mr-2 h-4 w-4" />
+                      Enable Two-Factor Authentication
+                    </Button>
                   </CardContent>
                 </Card>
               </div>
