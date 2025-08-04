@@ -16,6 +16,7 @@ import Documentation from "./pages/Documentation";
 import Resources from "./pages/Resources";
 import ClientDashboard from "./pages/ClientDashboard";
 import LabelerDashboard from "./pages/LabelerDashboard";
+import AdminDashboard from "./pages/AdminDashboard";
 import About from "./pages/About";
 import Api from "./pages/Api";
 import Support from "./pages/Support";
@@ -41,8 +42,9 @@ const App = () => (
             <Route path="/customers" element={<Customers />} />
             <Route path="/documentation" element={<Documentation />} />
             <Route path="/resources" element={<Resources />} />
-            <Route path="/client-dashboard" element={<ClientDashboard />} />
-            <Route path="/labeler-dashboard" element={<LabelerDashboard />} />
+          <Route path="/client-dashboard" element={<ClientDashboard />} />
+          <Route path="/labeler-dashboard" element={<LabelerDashboard />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
             <Route path="/about" element={<About />} />
             <Route path="/api" element={<Api />} />
             <Route path="/support" element={<Support />} />

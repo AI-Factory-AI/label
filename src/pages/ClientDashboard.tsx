@@ -1,8 +1,10 @@
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Input } from "@/components/ui/input"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { 
   Upload, 
   FileText, 
@@ -17,10 +19,36 @@ import {
   Settings,
   HelpCircle,
   ChevronDown,
-  Filter
+  Filter,
+  Target,
+  Zap,
+  Shield,
+  Globe,
+  TrendingUp,
+  DollarSign,
+  Eye,
+  Edit,
+  MoreVertical,
+  Calendar,
+  Layers,
+  Database
 } from "lucide-react"
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar"
 
 export default function ClientDashboard() {
+  const [activeTab, setActiveTab] = useState("overview")
+  
   const projects = [
     {
       id: "proj_001",
@@ -61,12 +89,21 @@ export default function ClientDashboard() {
   ]
 
   const menuItems = [
-    { name: "Dashboard", icon: BarChart3, active: true },
-    { name: "Upload Data", icon: Upload, active: false },
-    { name: "Track Projects", icon: FileText, active: false },
-    { name: "Analytics", icon: BarChart3, active: false },
-    { name: "Settings", icon: Settings, active: false },
-    { name: "Help", icon: HelpCircle, active: false },
+    { name: "Overview", icon: BarChart3, value: "overview" },
+    { name: "Projects", icon: FileText, value: "projects" },
+    { name: "Upload Data", icon: Upload, value: "upload" },
+    { name: "Analytics", icon: TrendingUp, value: "analytics" },
+    { name: "Quality Control", icon: Shield, value: "quality" },
+    { name: "Billing", icon: DollarSign, value: "billing" },
+    { name: "Settings", icon: Settings, value: "settings" },
+    { name: "Help", icon: HelpCircle, value: "help" },
+  ]
+
+  const datasetTypes = [
+    { name: "Image Classification", icon: Eye, count: 45, color: "bg-blue-500" },
+    { name: "Object Detection", icon: Target, count: 23, color: "bg-green-500" },
+    { name: "Text Annotation", icon: FileText, count: 12, color: "bg-purple-500" },
+    { name: "Audio Transcription", icon: Database, count: 8, color: "bg-orange-500" }
   ]
 
   const getStatusColor = (status: string) => {
@@ -88,87 +125,107 @@ export default function ClientDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex">
-      {/* Sidebar */}
-      <div className="w-64 bg-sidebar border-r border-border flex flex-col">
-        {/* Logo */}
-        <div className="p-6 border-b border-border">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">LA</span>
+    <SidebarProvider>
+      <div className="min-h-screen flex w-full bg-background">
+        {/* Sidebar */}
+        <Sidebar className="border-r">
+          <SidebarContent>
+            {/* Logo */}
+            <div className="p-6 border-b border-border">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                  <span className="text-primary-foreground font-bold text-sm">LA</span>
+                </div>
+                <div>
+                  <span className="font-semibold text-lg">Label</span>
+                  <div className="text-xs text-muted-foreground">Client Portal</div>
+                </div>
+              </div>
             </div>
-                            <span className="font-semibold text-lg">Label</span>
-          </div>
-        </div>
 
-        {/* Navigation */}
-        <nav className="flex-1 p-4">
-          <div className="space-y-2">
-            {menuItems.map((item) => (
-              <button
-                key={item.name}
-                className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-sm transition-colors ${
-                  item.active 
-                    ? 'bg-primary text-primary-foreground' 
-                    : 'text-muted-foreground hover:bg-muted hover:text-foreground'
-                }`}
-              >
-                <item.icon className="h-4 w-4" />
-                <span>{item.name}</span>
-              </button>
-            ))}
-          </div>
-        </nav>
+            <SidebarGroup>
+              <SidebarGroupLabel>Main Navigation</SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {menuItems.map((item) => (
+                    <SidebarMenuItem key={item.name}>
+                      <SidebarMenuButton 
+                        isActive={activeTab === item.value}
+                        onClick={() => setActiveTab(item.value)}
+                      >
+                        <item.icon className="h-4 w-4" />
+                        <span>{item.name}</span>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
 
-        {/* User Profile */}
-        <div className="p-4 border-t border-border">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-muted rounded-full"></div>
-            <div className="flex-1">
-              <p className="text-sm font-medium">Acme Corp</p>
-              <p className="text-xs text-muted-foreground">admin@acme.com</p>
+            {/* User Profile */}
+            <div className="mt-auto p-4 border-t border-border">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
+                  <span className="text-primary-foreground font-bold text-sm">AC</span>
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm font-medium">Acme Corp</p>
+                  <p className="text-xs text-muted-foreground">Enterprise Client</p>
+                </div>
+                <ChevronDown className="h-4 w-4 text-muted-foreground" />
+              </div>
             </div>
-            <ChevronDown className="h-4 w-4 text-muted-foreground" />
-          </div>
-        </div>
-      </div>
+          </SidebarContent>
+        </Sidebar>
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        {/* Top Header */}
-        <header className="h-16 border-b border-border bg-card px-6 flex items-center justify-between">
-          <div>
-            <h1 className="text-xl font-semibold">Project Analytics</h1>
-            <p className="text-sm text-muted-foreground">Track your data labeling projects</p>
-          </div>
-          <div className="flex items-center space-x-3">
-            <Button variant="outline" size="sm">
-              <Filter className="mr-2 h-4 w-4" />
-              Last 30 days
-            </Button>
-            <Button className="bg-primary hover:bg-primary/90">
-              <Plus className="mr-2 h-4 w-4" />
-              New Project
-            </Button>
-          </div>
-        </header>
-
-        {/* Content Area */}
-        <div className="flex-1 p-6 space-y-6">
-          {/* Search and Filter */}
-          <div className="flex items-center space-x-4">
-            <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input placeholder="Search projects..." className="pl-10" />
+        {/* Main Content */}
+        <div className="flex-1 flex flex-col">
+          {/* Header */}
+          <header className="h-16 border-b border-border bg-card px-6 flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <SidebarTrigger />
+              <div>
+                <h1 className="text-xl font-semibold">Client Dashboard</h1>
+                <p className="text-sm text-muted-foreground">Manage your AI data projects</p>
+              </div>
             </div>
-            <Button variant="outline">
-              <Filter className="mr-2 h-4 w-4" />
-              Filter
-            </Button>
-          </div>
+            <div className="flex items-center space-x-3">
+              <Button variant="outline" size="sm">
+                <Filter className="mr-2 h-4 w-4" />
+                Last 30 days
+              </Button>
+              <Button className="bg-primary hover:bg-primary/90">
+                <Plus className="mr-2 h-4 w-4" />
+                New Project
+              </Button>
+            </div>
+          </header>
 
-          {/* Project Status Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Content */}
+          <div className="flex-1 p-6">
+            {activeTab === "overview" && (
+              <div className="space-y-6">
+                {/* Quick Actions */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  {datasetTypes.map((type) => (
+                    <Card key={type.name} className="hover:shadow-md transition-shadow cursor-pointer">
+                      <CardContent className="p-4">
+                        <div className="flex items-center space-x-3">
+                          <div className={`w-10 h-10 ${type.color} rounded-lg flex items-center justify-center`}>
+                            <type.icon className="h-5 w-5 text-white" />
+                          </div>
+                          <div>
+                            <p className="text-sm font-medium">{type.name}</p>
+                            <p className="text-xs text-muted-foreground">{type.count} projects</p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+
+                {/* Project Status Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="border-l-4 border-l-green-500">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
@@ -225,10 +282,10 @@ export default function ClientDashboard() {
                 </div>
               </CardContent>
             </Card>
-          </div>
+                </div>
 
-          {/* Project List */}
-          <Card>
+                {/* Project List */}
+                <Card>
             <CardHeader>
               <CardTitle>All Projects</CardTitle>
               <CardDescription>Manage and track all your data labeling projects</CardDescription>
@@ -266,10 +323,94 @@ export default function ClientDashboard() {
                   </div>
                 ))}
               </div>
-            </CardContent>
-          </Card>
+                </CardContent>
+                </Card>
+              </div>
+            )}
+
+            {activeTab === "projects" && (
+              <div className="space-y-6">
+                <div className="flex items-center space-x-4">
+                  <div className="flex-1 relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input placeholder="Search projects..." className="pl-10" />
+                  </div>
+                  <Button variant="outline">
+                    <Filter className="mr-2 h-4 w-4" />
+                    Filter
+                  </Button>
+                </div>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle>All Projects</CardTitle>
+                    <CardDescription>Manage and track all your data labeling projects</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {projects.map((project) => (
+                        <div key={project.id} className="flex items-center justify-between p-4 rounded-lg border hover:bg-muted/50 transition-colors">
+                          <div className="flex items-center space-x-4">
+                            <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
+                              <FileText className="h-5 w-5 text-muted-foreground" />
+                            </div>
+                            <div>
+                              <h3 className="font-medium">{project.name}</h3>
+                              <p className="text-sm text-muted-foreground">{project.email}</p>
+                            </div>
+                          </div>
+                          <div className="flex items-center space-x-6">
+                            <div className="text-right">
+                              <p className="text-sm font-medium">{project.completedTasks}</p>
+                              <p className="text-xs text-muted-foreground">Tasks completed</p>
+                            </div>
+                            <div className="text-right">
+                              <p className="text-sm font-medium">{project.accuracy}%</p>
+                              <p className="text-xs text-muted-foreground">Accuracy</p>
+                            </div>
+                            <Badge className={`${getStatusColor(project.status)} border-0`}>
+                              {getStatusIcon(project.status)}
+                              <span className="ml-1 capitalize">{project.status.replace('_', ' ')}</span>
+                            </Badge>
+                            <div className="flex items-center space-x-2">
+                              <Button variant="ghost" size="sm">
+                                <Eye className="h-4 w-4" />
+                              </Button>
+                              <Button variant="ghost" size="sm">
+                                <Edit className="h-4 w-4" />
+                              </Button>
+                              <Button variant="ghost" size="sm">
+                                <MoreVertical className="h-4 w-4" />
+                              </Button>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
+
+            {activeTab === "upload" && (
+              <Card>
+                <CardHeader>
+                  <CardTitle>Upload Dataset</CardTitle>
+                  <CardDescription>Upload your data for annotation</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-12 text-center">
+                    <Upload className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                    <h3 className="text-lg font-medium mb-2">Drop your files here</h3>
+                    <p className="text-muted-foreground mb-4">or click to browse</p>
+                    <Button>Choose Files</Button>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </SidebarProvider>
   )
 }

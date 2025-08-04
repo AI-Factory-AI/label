@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -23,10 +24,29 @@ import {
   ChevronDown,
   Search,
   Filter,
-  User
+  User,
+  Zap,
+  Shield,
+  Activity,
+  Calendar,
+  Play
 } from "lucide-react"
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar"
 
 export default function LabelerDashboard() {
+  const [activeTab, setActiveTab] = useState("overview")
+  
   // Mock data for available tasks
   const availableTasks = [
     {
@@ -80,14 +100,21 @@ export default function LabelerDashboard() {
   ]
 
   const menuItems = [
-    { name: "Dashboard", icon: BarChart3, active: true },
-    { name: "Available Tasks", icon: FileText, active: false },
-    { name: "Completed Tasks", icon: CheckCircle, active: false },
-    { name: "Earnings", icon: DollarSign, active: false },
-    { name: "Leaderboard", icon: Trophy, active: false },
-    { name: "Profile", icon: User, active: false },
-    { name: "Settings", icon: Settings, active: false },
-    { name: "Help", icon: HelpCircle, active: false },
+    { name: "Overview", icon: BarChart3, value: "overview" },
+    { name: "Available Tasks", icon: FileText, value: "tasks" },
+    { name: "Completed Tasks", icon: CheckCircle, value: "completed" },
+    { name: "Earnings", icon: DollarSign, value: "earnings" },
+    { name: "Leaderboard", icon: Trophy, value: "leaderboard" },
+    { name: "Training", icon: Zap, value: "training" },
+    { name: "Profile", icon: User, value: "profile" },
+    { name: "Settings", icon: Settings, value: "settings" },
+  ]
+
+  const quickStats = [
+    { label: "Today's Earnings", value: "$24.50", change: "+15%", icon: DollarSign, color: "text-green-600" },
+    { label: "Tasks Completed", value: "47", change: "+8%", icon: CheckCircle, color: "text-blue-600" },
+    { label: "Accuracy Rate", value: "98.9%", change: "+0.2%", icon: Shield, color: "text-purple-600" },
+    { label: "Current Rank", value: "#47", change: "+3", icon: Trophy, color: "text-orange-600" }
   ]
 
   const getTaskIcon = (type: string) => {
@@ -110,88 +137,144 @@ export default function LabelerDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex">
-      {/* Sidebar */}
-      <div className="w-64 bg-sidebar border-r border-border flex flex-col">
-        {/* Logo */}
-        <div className="p-6 border-b border-border">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">LA</span>
+    <SidebarProvider>
+      <div className="min-h-screen flex w-full bg-background">
+        {/* Sidebar */}
+        <Sidebar className="border-r">
+          <SidebarContent>
+            {/* Logo */}
+            <div className="p-6 border-b border-border">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                  <span className="text-primary-foreground font-bold text-sm">LA</span>
+                </div>
+                <div>
+                  <span className="font-semibold text-lg">Label</span>
+                  <div className="text-xs text-muted-foreground">Labeler Portal</div>
+                </div>
+              </div>
             </div>
-                            <span className="font-semibold text-lg">Label</span>
-          </div>
-        </div>
 
-        {/* Navigation */}
-        <nav className="flex-1 p-4">
-          <div className="space-y-2">
-            {menuItems.map((item) => (
-              <button
-                key={item.name}
-                className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-sm transition-colors ${
-                  item.active 
-                    ? 'bg-primary text-primary-foreground' 
-                    : 'text-muted-foreground hover:bg-muted hover:text-foreground'
-                }`}
-              >
-                <item.icon className="h-4 w-4" />
-                <span>{item.name}</span>
-              </button>
-            ))}
-          </div>
-        </nav>
+            <SidebarGroup>
+              <SidebarGroupLabel>Main Navigation</SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {menuItems.map((item) => (
+                    <SidebarMenuItem key={item.name}>
+                      <SidebarMenuButton 
+                        isActive={activeTab === item.value}
+                        onClick={() => setActiveTab(item.value)}
+                      >
+                        <item.icon className="h-4 w-4" />
+                        <span>{item.name}</span>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
 
-        {/* User Profile */}
-        <div className="p-4 border-t border-border">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">JD</span>
+            {/* User Profile */}
+            <div className="mt-auto p-4 border-t border-border">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
+                  <span className="text-primary-foreground font-bold text-sm">JD</span>
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm font-medium">John Doe</p>
+                  <p className="text-xs text-muted-foreground">Expert Labeler</p>
+                </div>
+                <ChevronDown className="h-4 w-4 text-muted-foreground" />
+              </div>
             </div>
-            <div className="flex-1">
-              <p className="text-sm font-medium">John Doe</p>
-              <p className="text-xs text-muted-foreground">Labeler</p>
-            </div>
-            <ChevronDown className="h-4 w-4 text-muted-foreground" />
-          </div>
-        </div>
-      </div>
+          </SidebarContent>
+        </Sidebar>
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        {/* Top Header */}
-        <header className="h-16 border-b border-border bg-card px-6 flex items-center justify-between">
-          <div>
-            <h1 className="text-xl font-semibold">Labeler Dashboard</h1>
-            <p className="text-sm text-muted-foreground">Track your tasks and earnings</p>
-          </div>
-          <div className="flex items-center space-x-3">
-            <div className="text-right">
-              <p className="text-lg font-light">$127.50</p>
-              <p className="text-xs text-muted-foreground">Available balance</p>
+        {/* Main Content */}
+        <div className="flex-1 flex flex-col">
+          {/* Header */}
+          <header className="h-16 border-b border-border bg-card px-6 flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <SidebarTrigger />
+              <div>
+                <h1 className="text-xl font-semibold">Labeler Dashboard</h1>
+                <p className="text-sm text-muted-foreground">Track your tasks and earnings</p>
+              </div>
             </div>
-            <Button className="bg-primary hover:bg-primary/90">
-              Withdraw
-            </Button>
-          </div>
-        </header>
-
-        {/* Content Area */}
-        <div className="flex-1 p-6 space-y-6">
-          {/* Search and Filter */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input placeholder="Search available tasks..." className="pl-10" />
+            <div className="flex items-center space-x-3">
+              <div className="text-right">
+                <p className="text-lg font-light">$127.50</p>
+                <p className="text-xs text-muted-foreground">Available balance</p>
+              </div>
+              <Button className="bg-primary hover:bg-primary/90">
+                Withdraw
+              </Button>
             </div>
-            <Button variant="outline" className="w-full sm:w-auto">
-              <Filter className="mr-2 h-4 w-4" />
-              Filter
-            </Button>
-          </div>
+          </header>
 
-          {/* Stats Overview */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Content */}
+          <div className="flex-1 p-6">
+            {activeTab === "overview" && (
+              <div className="space-y-6">
+                {/* Quick Stats */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {quickStats.map((stat) => (
+                    <Card key={stat.label} className="hover:shadow-md transition-shadow">
+                      <CardContent className="p-4">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-sm text-muted-foreground">{stat.label}</p>
+                            <p className="text-2xl font-bold">{stat.value}</p>
+                            <p className={`text-xs ${stat.color}`}>{stat.change}</p>
+                          </div>
+                          <stat.icon className={`h-8 w-8 ${stat.color}`} />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+
+                {/* Featured Tasks */}
+                <Card>
+                  <CardHeader>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <CardTitle>Featured Tasks</CardTitle>
+                        <CardDescription>High-paying opportunities available now</CardDescription>
+                      </div>
+                      <Button variant="outline" size="sm">View All</Button>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {availableTasks.slice(0, 2).map((task) => (
+                        <div key={task.id} className="p-4 rounded-lg border hover:bg-muted/50 transition-colors">
+                          <div className="flex items-center space-x-3 mb-3">
+                            <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                              {getTaskIcon(task.type)}
+                            </div>
+                            <div>
+                              <h3 className="font-medium text-sm">{task.title}</h3>
+                              <p className="text-xs text-muted-foreground">${task.payment}/task</p>
+                            </div>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <Badge className={`${getDifficultyColor(task.difficulty)} text-xs border-0`}>
+                              {task.difficulty}
+                            </Badge>
+                            <Button size="sm" className="h-7">
+                              <Play className="mr-1 h-3 w-3" />
+                              Start
+                            </Button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Performance Overview */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="border-l-4 border-l-green-500">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
@@ -267,53 +350,70 @@ export default function LabelerDashboard() {
                 </div>
               </CardContent>
             </Card>
-          </div>
-
-          {/* Available Tasks */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Available Tasks</CardTitle>
-              <CardDescription>Choose from available tasks and start earning</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {availableTasks.map((task) => (
-                  <div key={task.id} className="flex flex-col lg:flex-row lg:items-center justify-between p-4 rounded-lg border hover:bg-muted/50 transition-colors space-y-4 lg:space-y-0">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
-                        {getTaskIcon(task.type)}
-                      </div>
-                      <div>
-                        <h3 className="font-medium">{task.title}</h3>
-                        <p className="text-sm text-muted-foreground">{task.description}</p>
-                        <div className="flex items-center space-x-4 mt-1">
-                          <span className="text-xs text-muted-foreground">{task.timeEstimate}</span>
-                          <Badge className={`${getDifficultyColor(task.difficulty)} text-xs border-0`}>
-                            {task.difficulty}
-                          </Badge>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-row lg:flex-row items-center space-x-4 lg:space-x-6">
-                      <div className="text-center lg:text-right">
-                        <p className="text-sm font-medium">${task.payment}</p>
-                        <p className="text-xs text-muted-foreground">per task</p>
-                      </div>
-                      <div className="text-center lg:text-right">
-                        <p className="text-sm font-medium">{task.remaining}</p>
-                        <p className="text-xs text-muted-foreground">remaining</p>
-                      </div>
-                      <Button className="bg-primary hover:bg-primary/90 w-full lg:w-auto">
-                        Start Task
-                      </Button>
-                    </div>
-                  </div>
-                ))}
+                </div>
               </div>
-            </CardContent>
-          </Card>
+            )}
+
+            {activeTab === "tasks" && (
+              <div className="space-y-6">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                  <div className="flex-1 relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input placeholder="Search available tasks..." className="pl-10" />
+                  </div>
+                  <Button variant="outline" className="w-full sm:w-auto">
+                    <Filter className="mr-2 h-4 w-4" />
+                    Filter
+                  </Button>
+                </div>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Available Tasks</CardTitle>
+                    <CardDescription>Choose from available tasks and start earning</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {availableTasks.map((task) => (
+                        <div key={task.id} className="flex flex-col lg:flex-row lg:items-center justify-between p-4 rounded-lg border hover:bg-muted/50 transition-colors space-y-4 lg:space-y-0">
+                          <div className="flex items-center space-x-4">
+                            <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
+                              {getTaskIcon(task.type)}
+                            </div>
+                            <div>
+                              <h3 className="font-medium">{task.title}</h3>
+                              <p className="text-sm text-muted-foreground">{task.description}</p>
+                              <div className="flex items-center space-x-4 mt-1">
+                                <span className="text-xs text-muted-foreground">{task.timeEstimate}</span>
+                                <Badge className={`${getDifficultyColor(task.difficulty)} text-xs border-0`}>
+                                  {task.difficulty}
+                                </Badge>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex flex-row lg:flex-row items-center space-x-4 lg:space-x-6">
+                            <div className="text-center lg:text-right">
+                              <p className="text-sm font-medium">${task.payment}</p>
+                              <p className="text-xs text-muted-foreground">per task</p>
+                            </div>
+                            <div className="text-center lg:text-right">
+                              <p className="text-sm font-medium">{task.remaining}</p>
+                              <p className="text-xs text-muted-foreground">remaining</p>
+                            </div>
+                            <Button className="bg-primary hover:bg-primary/90 w-full lg:w-auto">
+                              Start Task
+                            </Button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </SidebarProvider>
   )
 }
