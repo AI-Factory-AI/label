@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
+import { Header } from "@/components/client/Header"
+import { Footer } from "@/components/client/Footer"
 import { BookOpen, Users, Mail, MapPin, Phone, FileText, Video, Download } from "lucide-react"
 
 export default function Resources() {

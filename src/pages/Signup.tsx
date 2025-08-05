@@ -5,17 +5,32 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Separator } from "@/components/ui/separator"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ArrowLeft, Github, Mail } from "lucide-react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useState } from "react";
 
 export default function Signup() {
+  const [tab, setTab] = useState("client");
+  const navigate = useNavigate();
+
+  function handleTabChange(value) {
+    setTab(value);
+  }
+
+  function handleClientSignup(e) {
+    e.preventDefault();
+    navigate("/client-dashboard");
+  }
+
+  function handleLabelerSignup(e) {
+    e.preventDefault();
+    navigate("/labeler-dashboard");
+  }
+
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="w-full max-w-md space-y-6">
         {/* Back Button */}
-        <Link to="/" className="inline-flex items-center text-muted-foreground hover:text-foreground">
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to home
-        </Link>
+        {/* Removed the Back to home link */}
 
         {/* Signup Form */}
         <Card>
@@ -26,60 +41,64 @@ export default function Signup() {
             <CardTitle className="text-2xl font-light text-center">Join Label</CardTitle>
           </CardHeader>
           <CardContent>
-            <Tabs defaultValue="client" className="w-full">
+            <Tabs defaultValue="client" className="w-full" onValueChange={handleTabChange}>
               <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="client">Client</TabsTrigger>
                 <TabsTrigger value="labeler">Labeler</TabsTrigger>
               </TabsList>
               
               <TabsContent value="client" className="space-y-4 mt-6">
-                <div className="space-y-2">
-                  <Label htmlFor="company">Company Name</Label>
-                  <Input id="company" placeholder="Enter your company name" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="client-email">Email</Label>
-                  <Input id="client-email" type="email" placeholder="Enter your email" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="client-password">Password</Label>
-                  <Input id="client-password" type="password" placeholder="Create a password" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="confirm-password">Confirm Password</Label>
-                  <Input id="confirm-password" type="password" placeholder="Confirm your password" />
-                </div>
-                <Button className="w-full bg-gradient-primary hover:bg-primary/90">
-                  Create Client Account
-                </Button>
+                <form onSubmit={handleClientSignup} className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="company">Company Name</Label>
+                    <Input id="company" placeholder="Enter your company name" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="client-email">Email</Label>
+                    <Input id="client-email" type="email" placeholder="Enter your email" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="client-password">Password</Label>
+                    <Input id="client-password" type="password" placeholder="Create a password" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="confirm-password">Confirm Password</Label>
+                    <Input id="confirm-password" type="password" placeholder="Confirm your password" />
+                  </div>
+                  <Button type="submit" className="w-full bg-gradient-primary hover:bg-primary/90">
+                    Create Client Account
+                  </Button>
+                </form>
               </TabsContent>
               
               <TabsContent value="labeler" className="space-y-4 mt-6">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="first-name">First Name</Label>
-                    <Input id="first-name" placeholder="First name" />
+                <form onSubmit={handleLabelerSignup} className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="first-name">First Name</Label>
+                      <Input id="first-name" placeholder="First name" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="last-name">Last Name</Label>
+                      <Input id="last-name" placeholder="Last name" />
+                    </div>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="last-name">Last Name</Label>
-                    <Input id="last-name" placeholder="Last name" />
+                    <Label htmlFor="labeler-email">Email</Label>
+                    <Input id="labeler-email" type="email" placeholder="Enter your email" />
                   </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="labeler-email">Email</Label>
-                  <Input id="labeler-email" type="email" placeholder="Enter your email" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="country">Country</Label>
-                  <Input id="country" placeholder="Select your country" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="labeler-password">Password</Label>
-                  <Input id="labeler-password" type="password" placeholder="Create a password" />
-                </div>
-                <Button className="w-full bg-gradient-primary hover:bg-primary/90">
-                  Create Labeler Account
-                </Button>
+                  <div className="space-y-2">
+                    <Label htmlFor="country">Country</Label>
+                    <Input id="country" placeholder="Select your country" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="labeler-password">Password</Label>
+                    <Input id="labeler-password" type="password" placeholder="Create a password" />
+                  </div>
+                  <Button type="submit" className="w-full bg-gradient-primary hover:bg-primary/90">
+                    Create Labeler Account
+                  </Button>
+                </form>
               </TabsContent>
             </Tabs>
             

@@ -110,23 +110,81 @@ export const Partners = () => {
                   </div>
                 </div>
               ))}
-              {/* Third set for extra smoothness */}
-              {logos.map((logo, index) => (
-                <div key={`third-${index}`} className="hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                  <div className="w-24 h-14 sm:w-32 sm:h-16 lg:w-36 lg:h-20 flex items-center justify-center bg-transparent border border-gray-500 dark:border-border rounded-full p-2 sm:p-3 lg:p-4 flex-shrink-0">
-                    <div className="relative w-full h-full">
-                      <img
-                        src={logo.src}
-                        alt={logo.alt}
-                        width={logo.width}
-                        height={logo.height}
-                        className="max-w-full max-h-full object-contain brightness-0 saturate-100 dark:brightness-0 dark:invert"
-                      />
-                    </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Testimonials */}
+        <div className="mt-16 sm:mt-20 lg:mt-24">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-foreground mb-4">
+              What Our Partners Say
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Hear from leading AI companies about their experience with Label Africa
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            <Card className="border-border bg-card hover:shadow-medium transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <Heart className="w-8 h-8 text-red-500 mr-3" />
+                  <div>
+                    <h3 className="font-semibold text-foreground">Healthcare AI</h3>
+                    <p className="text-sm text-muted-foreground">Medical Imaging</p>
                   </div>
                 </div>
-              ))}
-            </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  "Label Africa's expertise in medical imaging annotation has been crucial for our diagnostic AI development."
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-card hover:shadow-medium transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <Brain className="w-8 h-8 text-blue-500 mr-3" />
+                  <div>
+                    <h3 className="font-semibold text-foreground">TechCorp</h3>
+                    <p className="text-sm text-muted-foreground">Autonomous Systems</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  "The quality and speed of their computer vision labeling has accelerated our autonomous vehicle development."
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-card hover:shadow-medium transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <Leaf className="w-8 h-8 text-green-500 mr-3" />
+                  <div>
+                    <h3 className="font-semibold text-foreground">AgriTech Solutions</h3>
+                    <p className="text-sm text-muted-foreground">Precision Agriculture</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  "Their agricultural data labeling expertise has been invaluable for our crop monitoring AI systems."
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-card hover:shadow-medium transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <Building2 className="w-8 h-8 text-purple-500 mr-3" />
+                  <div>
+                    <h3 className="font-semibold text-foreground">GovTech</h3>
+                    <p className="text-sm text-muted-foreground">Public Services</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  "Label Africa's secure and accurate document processing has transformed our citizen services."
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>

@@ -100,12 +100,12 @@ export function WhyAfrica() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-12 sm:mt-16">
-          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-full font-medium hover:shadow-lg transition-all duration-300 cursor-pointer group">
-            <TrendingUp className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
-            Ready to Grow Your AI Projects?
+          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary/10 to-accent/10 text-primary rounded-full text-sm font-medium">
+            <Shield className="w-4 h-4 mr-2" />
+            ISO 27001 Certified & GDPR Compliant
           </div>
         </div>
       </div>
     </section>
   )
-}
+} 

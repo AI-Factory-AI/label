@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { LabelerHeader } from "@/components/labelers/LabelerHeader"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Input } from "@/components/ui/input"
@@ -169,82 +170,7 @@ export default function LabelerDashboard() {
 
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
-      {/* Modern Header */}
-      <header className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border-b px-6 py-4 fixed top-0 left-16 right-0 z-40`} style={{top: '-8px'}}>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="lg:hidden"
-            >
-              <Menu className="h-5 w-5" />
-            </Button>
-          </div>
-
-          <div className="flex items-center space-x-4">
-            {/* Search */}
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-              <Input 
-                placeholder="Search..." 
-                className={`pl-10 w-80 border-0 ${darkMode ? 'bg-gray-700 text-gray-200 placeholder-gray-400' : 'bg-gray-100 text-gray-600 placeholder-gray-400'} focus:border-0 focus:ring-0 hover:bg-gray-200 transition-colors duration-200`} 
-              />
-            </div>
-
-            {/* Notifications */}
-            <Button variant="ghost" size="sm" className="relative p-2 hover:bg-transparent">
-              <Bell className={`h-6 w-6 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`} />
-              <Badge className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-transparent text-xs text-gray-800 flex items-center justify-center font-semibold">
-                3
-              </Badge>
-            </Button>
-
-            {/* Dark Mode Toggle */}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setDarkMode(!darkMode)}
-              className="p-2"
-            >
-              {darkMode ? (
-                <Sun className="h-5 w-5 text-yellow-400" />
-              ) : (
-                <Moon className="h-5 w-5 text-gray-600" />
-              )}
-            </Button>
-
-            {/* User Profile */}
-            <div className="flex items-center  space-x-3">
-              <div className="relative group mt-1">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center cursor-pointer">
-                  <span className="text-white font-bold text-sm">JD</span>
-                </div>
-                
-                {/* Dropdown on hover */}
-                <div className={`absolute right-0 top-full w-48 ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none group-hover:pointer-events-auto z-50`}>
-                  <div className={`p-3 border-b ${darkMode ? 'border-gray-700' : 'border-gray-100'}`}>
-                    <p className={`text-sm font-medium ${darkMode ? 'text-gray-200' : 'text-gray-900'}`}>John Doe</p>
-                    <p className="text-xs text-gray-500">Expert Labeler</p>
-                  </div>
-                  <div className="p-1">
-                    <button className={`w-full text-left px-3 py-2 text-sm ${darkMode ? 'text-gray-300 hover:bg-gray-700' : 'text-gray-700 hover:bg-gray-50'} rounded-md`}>
-                      Profile
-                    </button>
-                    <button className={`w-full text-left px-3 py-2 text-sm ${darkMode ? 'text-gray-300 hover:bg-gray-700' : 'text-gray-700 hover:bg-gray-50'} rounded-md`}>
-                      Settings
-                    </button>
-                    <button className={`w-full text-left px-3 py-2 text-sm text-red-600 ${darkMode ? 'hover:bg-red-900' : 'hover:bg-red-50'} rounded-md`}>
-                      Sign out
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+      <LabelerHeader />
 
       <div className="flex pt-16">
         {/* Modern Sidebar */}

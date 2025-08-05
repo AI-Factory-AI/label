@@ -14,6 +14,7 @@ import Government from "./pages/Government";
 import Customers from "./pages/Customers";
 import Documentation from "./pages/Documentation";
 import Resources from "./pages/Resources";
+import RequestQuota from "./pages/RequestQuota";
 import ClientDashboard from "./pages/ClientDashboard";
 import LabelerDashboard from "./pages/LabelerDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -42,6 +43,7 @@ const App = () => (
             <Route path="/customers" element={<Customers />} />
             <Route path="/documentation" element={<Documentation />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/request-quota" element={<RequestQuota />} />
           <Route path="/client-dashboard" element={<ClientDashboard />} />
           <Route path="/labeler-dashboard" element={<LabelerDashboard />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />

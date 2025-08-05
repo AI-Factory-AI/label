@@ -31,14 +31,14 @@ export function Hero() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/signup">
+            <Link to="/request-quota">
               <Button size="lg" className="bg-gradient-primary hover:bg-primary/90 text-lg px-8 py-4">
                 Request a Quote
               </Button>
             </Link>
-            <Link to="/labeler-dashboard">
+            <Link to="/signup">
               <Button size="lg" variant="outline" className="text-lg px-8 py-4 border-primary/20 hover:bg-primary/5">
-                Join as a Labeler
+                Get Started
               </Button>
             </Link>
           </div>
@@ -62,4 +62,4 @@ export function Hero() {
       </div>
     </section>
   )
-}
+} 

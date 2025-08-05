@@ -1,10 +1,10 @@
-import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-import { Partners } from "@/components/Partners";
-import { HowItWorks } from "@/components/HowItWorks";
-import { Industries } from "@/components/Industries";
-import { WhyAfrica } from "@/components/WhyAfrica";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/client/Header";
+import { Hero } from "@/components/client/Hero";
+import { Partners } from "@/components/client/Partners";
+import { HowItWorks } from "@/components/client/HowItWorks";
+import { Industries } from "@/components/client/Industries";
+import { WhyAfrica } from "@/components/client/WhyAfrica";
+import { Footer } from "@/components/client/Footer";
 
 const Index = () => {
   return (

@@ -98,17 +98,17 @@ export function Industries() {
         <div className="mt-12 sm:mt-16 text-center">
           <div className="inline-flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8 bg-background/80 backdrop-blur-sm rounded-2xl px-6 sm:px-8 py-6 border border-border/50">
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-light text-primary">10,000+</div>
+              <div className="text-2xl sm:text-3xl font-light text-primary mb-1">10,000+</div>
               <div className="text-xs sm:text-sm text-muted-foreground">Projects Completed</div>
             </div>
-            <div className="hidden sm:block w-px h-12 bg-border"></div>
+            <div className="hidden sm:block w-px h-8 bg-border/50"></div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-light text-primary">50+</div>
+              <div className="text-2xl sm:text-3xl font-light text-primary mb-1">50+</div>
               <div className="text-xs sm:text-sm text-muted-foreground">Industries Served</div>
             </div>
-            <div className="hidden sm:block w-px h-12 bg-border"></div>
+            <div className="hidden sm:block w-px h-8 bg-border/50"></div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-light text-primary">99.5%</div>
+              <div className="text-2xl sm:text-3xl font-light text-primary mb-1">99.5%</div>
               <div className="text-xs sm:text-sm text-muted-foreground">Client Satisfaction</div>
             </div>
           </div>
@@ -116,4 +116,4 @@ export function Industries() {
       </div>
     </section>
   )
-}
+} 
