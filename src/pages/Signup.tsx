@@ -38,7 +38,7 @@ export default function Signup() {
             <CardDescription className="text-center">
               Create your account to get started
             </CardDescription>
-            <CardTitle className="text-2xl font-light text-center">Join Label</CardTitle>
+            <CardTitle className="text-2xl font-light text-center">Join Labilo</CardTitle>
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="client" className="w-full" onValueChange={handleTabChange}>

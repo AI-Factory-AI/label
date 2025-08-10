@@ -60,7 +60,7 @@ export default function About() {
       <section className="pt-24 pb-16 px-4">
         <div className="container mx-auto text-center">
           <div className="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
-            About Label
+            About Labilo
           </div>
           <h1 className="text-4xl md:text-6xl font-light mb-6">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">

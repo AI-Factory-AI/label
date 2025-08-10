@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+ import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/ThemeToggle"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
@@ -49,7 +49,7 @@ export function Header() {
             alt="Labilo Logo" 
             className="h-6 sm:h-8 w-auto"
           />
-          <span className="text-lg sm:text-xl font-bold text-foreground">Label</span>
+          <span className="text-lg sm:text-xl font-bold text-foreground">Labilo</span>
         </Link>
 
         {/* Desktop Navigation */}

@@ -56,7 +56,7 @@ export function Footer() {
                   alt="Labilo Logo" 
                   className="h-6 sm:h-8 w-auto"
                 />
-                <span className="text-lg sm:text-xl font-bold">Label</span>
+                <span className="text-lg sm:text-xl font-bold">Labilo</span>
               </div>
               
               <p className="text-secondary-foreground/80 mb-6 leading-relaxed text-sm sm:text-base">
@@ -133,7 +133,7 @@ export function Footer() {
         <div className="border-t border-secondary-foreground/10 py-4 sm:py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-sm text-secondary-foreground/70 text-center sm:text-left">
-              © 2024 Label. All rights reserved.
+              © 2024 Labilo. All rights reserved.
             </div>
             
             <div className="flex items-center space-x-4">
