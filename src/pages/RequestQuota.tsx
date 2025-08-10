@@ -275,7 +275,7 @@ export default function RequestQuota() {
               <div className="space-y-6 lg:col-span-1 overflow-hidden">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Why Choose Label Africa?</CardTitle>
+                    <CardTitle>Why Choose Labilo?</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="flex items-start space-x-3">
@@ -320,7 +320,7 @@ export default function RequestQuota() {
                     <div className="space-y-3">
                       <div className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span className="text-sm">Email: sales@labelafrica.ai</span>
+                        <span className="text-sm">Email: sales@labiloafrica.ai</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-green-500 rounded-full"></div>

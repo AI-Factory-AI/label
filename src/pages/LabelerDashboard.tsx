@@ -182,7 +182,7 @@ export default function LabelerDashboard() {
                 <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
                   <img 
                     src="https://res.cloudinary.com/ecosheane/image/upload/v1754217265/lable_z2geih.png" 
-                    alt="Label Africa Logo" 
+                    alt="Labilo Logo" 
                     className="w-full h-full object-contain"
                   />
                 </div>

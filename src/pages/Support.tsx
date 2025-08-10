@@ -32,7 +32,7 @@ export default function Support() {
 
   const faqs = [
     {
-      question: "How do I get started with Lable?",
+      question: "How do I get started with Labilo?",
       answer: "Sign up for an account, complete your profile, and start your first project. Our onboarding team will guide you through the process."
     },
     {
@@ -103,7 +103,7 @@ export default function Support() {
             <span className="text-foreground">to Help</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Get the support you need to succeed with Lable. Our team is ready to help 
+            Get the support you need to succeed with Labilo. Our team is ready to help 
             you with any questions or challenges.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -235,7 +235,7 @@ export default function Support() {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-primary" />
-                  <span className="text-foreground">support@lable.com</span>
+                  <span className="text-foreground">support@labilo.com</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-primary" />

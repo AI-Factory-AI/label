@@ -17,14 +17,14 @@ export default function Documentation() {
   }
 
   const codeBlocks = {
-          auth: `curl -X POST https://api.lable.com/v1/auth/token \\
+          auth: `curl -X POST https://api.labilo.com/v1/auth/token \\
   -H "Content-Type: application/json" \\
   -d '{
     "api_key": "your_api_key_here",
     "client_id": "your_client_id"
   }'`,
     
-          createProject: `curl -X POST https://api.lable.com/v1/projects \\
+          createProject: `curl -X POST https://api.labilo.com/v1/projects \\
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -40,12 +40,12 @@ export default function Documentation() {
     }
   }'`,
     
-          uploadTasks: `curl -X POST https://api.lable.com/v1/projects/proj_123/tasks \\
+          uploadTasks: `curl -X POST https://api.labilo.com/v1/projects/proj_123/tasks \\
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \\
   -F "file=@wildlife_images.zip" \\
   -F "metadata={\\"batch_size\\": 100, \\"priority\\": \\"high\\"}"`,
     
-          getResults: `curl -X GET https://api.lable.com/v1/projects/proj_123/results \\
+          getResults: `curl -X GET https://api.labilo.com/v1/projects/proj_123/results \\
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \\
   -H "Accept: application/json"`,
     
@@ -107,7 +107,7 @@ export default function Documentation() {
               </div>
               <h1 className="text-5xl md:text-7xl font-light text-foreground mb-6">
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Lable
+                  Labilo
                 </span>
                 <br />
                 <span className="text-foreground">API Reference</span>
@@ -639,7 +639,7 @@ export default function Documentation() {
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-light mb-6">Ready to Get Started?</h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join thousands of developers using Lable's API to build the next generation of AI applications.
+              Join thousands of developers using Labilo's API to build the next generation of AI applications.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-gradient-primary hover:bg-primary/90">

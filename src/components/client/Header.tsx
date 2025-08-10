@@ -46,7 +46,7 @@ export function Header() {
         <Link to="/" className="flex items-center space-x-2 flex-shrink-0">
           <img 
             src="https://res.cloudinary.com/ecosheane/image/upload/v1754217265/lable_z2geih.png" 
-            alt="Lable Logo" 
+            alt="Labilo Logo" 
             className="h-6 sm:h-8 w-auto"
           />
           <span className="text-lg sm:text-xl font-bold text-foreground">Label</span>

@@ -121,7 +121,7 @@ export const Partners = () => {
               What Our Partners Say
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Hear from leading AI companies about their experience with Label Africa
+              Hear from leading AI companies about their experience with Labilo
             </p>
           </div>
 
@@ -136,7 +136,7 @@ export const Partners = () => {
                   </div>
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  "Label Africa's expertise in medical imaging annotation has been crucial for our diagnostic AI development."
+                  "Labilo's expertise in medical imaging annotation has been crucial for our diagnostic AI development."
                 </p>
               </CardContent>
             </Card>
@@ -181,7 +181,7 @@ export const Partners = () => {
                   </div>
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  "Label Africa's secure and accurate document processing has transformed our citizen services."
+                  "Labilo's secure and accurate document processing has transformed our citizen services."
                 </p>
               </CardContent>
             </Card>

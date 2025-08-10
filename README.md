@@ -1,4 +1,4 @@
-# Label Africa AI
+# Labilo  AI
 
 A modern, professional AI data labeling platform designed to connect African talent with global AI annotation opportunities. Built with React, TypeScript, and modern web technologies.
 
@@ -36,7 +36,7 @@ A modern, professional AI data labeling platform designed to connect African tal
 1. **Clone the repository:**
 ```bash
 git clone <your-repo-url>
-cd label-africa-ai
+cd labilo-africa-ai
 ```
 
 2. **Install dependencies:**
@@ -73,7 +73,7 @@ The application will be available at `http://localhost:8080`
 ## 📁 Project Structure
 
 ```
-label-africa-ai/
+labilo-africa-ai/
 ├── src/
 │   ├── components/          # Reusable UI components
 │   │   ├── ui/             # shadcn/ui components
@@ -209,9 +209,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 For support, questions, or feature requests:
-- **Email**: support@labelafrica.ai
-- **Issues**: [GitHub Issues](https://github.com/your-org/label-africa-ai/issues)
-- **Documentation**: [Platform Docs](https://docs.labelafrica.ai)
+- **Email**: support@labiloafrica.ai
+- **Issues**: [GitHub Issues](https://github.com/your-org/labilo-africa-ai/issues)
+- **Documentation**: [Platform Docs](https://docs.labiloafrica.ai)
 
 ---
 

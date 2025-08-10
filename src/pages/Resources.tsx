@@ -17,7 +17,7 @@ export default function Resources() {
               Resources & Support
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Everything you need to succeed with Lable. From getting started guides 
+              Everything you need to succeed with Labilo. From getting started guides 
               to contacting our team directly.
             </p>
           </div>
@@ -130,12 +130,12 @@ export default function Resources() {
         <section className="py-20 bg-card">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-light text-center mb-12">About Lable</h2>
+              <h2 className="text-3xl font-light text-center mb-12">About Labilo</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
                   <h3 className="text-2xl font-semibold mb-4">Our Mission</h3>
                   <p className="text-muted-foreground mb-6">
-                    Lable is bridging the AI data gap by connecting global companies with Africa's 
+                    Labilo is bridging the AI data gap by connecting global companies with Africa's 
                     talented workforce. We believe in creating economic opportunities while building 
                     the future of artificial intelligence.
                   </p>
@@ -199,7 +199,7 @@ export default function Resources() {
                   <CardContent className="space-y-4">
                     <div className="flex items-center space-x-3">
                       <Mail className="h-5 w-5 text-primary" />
-                      <span>hello@lable.com</span>
+                      <span>hello@labilo.com</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Phone className="h-5 w-5 text-primary" />
