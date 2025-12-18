@@ -60,7 +60,7 @@ export default function About() {
       <section className="pt-24 pb-16 px-4">
         <div className="container mx-auto text-center">
           <div className="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
-            About Labilo
+            About Datos
           </div>
           <h1 className="text-4xl md:text-6xl font-light mb-6">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -83,7 +83,7 @@ export default function About() {
             <div>
               <h2 className="text-3xl font-light mb-6">Our Mission</h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Labilo was founded with a simple yet powerful vision: to unlock Africa's potential 
+                Datos was founded with a simple yet powerful vision: to unlock Africa's potential 
                 as a global hub for AI data labeling and machine learning expertise.
               </p>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
@@ -133,7 +133,7 @@ export default function About() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-light mb-4">Our Values</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              The principles that guide everything we do at Labilo
+              The principles that guide everything we do at Datos
             </p>
           </div>
           
@@ -159,7 +159,7 @@ export default function About() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-light mb-4">Leadership Team</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Meet the visionaries driving Labilo's mission
+              Meet the visionaries driving Datos' mission
             </p>
           </div>
           

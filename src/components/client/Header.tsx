@@ -98,17 +98,17 @@ export function Header() {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-3">
             <Link
-              to="/login"
+              to="/wishlist"
               className="text-sm text-gray-900 hover:text-gray-700 transition font-geist px-4 py-2"
             >
-              Login
+              Wishlist
             </Link>
-            <Link
-              to="/signup"
+            <a
+              href="#contact"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-500 px-4 py-2.5 text-sm font-medium hover:bg-blue-600 transition font-geist text-white"
             >
               Get Started
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -158,19 +158,19 @@ export function Header() {
               
               <div className="pt-4 space-y-3 border-t border-gray-200 mt-2">
                 <Link
-                  to="/login"
+                  to="/wishlist"
                   className="block text-sm text-gray-900 hover:text-gray-700 transition font-geist py-2"
                   onClick={toggleMenu}
                 >
-                  Login
+                  Wishlist
                 </Link>
-                <Link
-                  to="/signup"
+                <a
+                  href="#contact"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-500 px-4 py-2.5 text-sm font-medium hover:bg-blue-600 transition font-geist text-white w-full"
                   onClick={toggleMenu}
                 >
                   Get Started
-                </Link>
+                </a>
               </div>
             </nav>
           </div>

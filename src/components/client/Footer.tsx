@@ -118,7 +118,7 @@ export function Footer() {
             </div>
 
             <p className="mt-4 sm:mt-6 text-center text-[10px] sm:text-xs text-white/70 font-geist px-2">
-              © <span>{currentYear}</span> Labilo. All Rights Reserved.
+              © <span>{currentYear}</span> Datos. All Rights Reserved.
             </p>
           </div>
         </div>

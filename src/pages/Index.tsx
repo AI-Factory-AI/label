@@ -1,9 +1,10 @@
 import { Header } from "@/components/client/Header";
 import { Hero } from "@/components/client/Hero";
 import { SplineBackground } from "@/components/client/SplineBackground";
-import { HowItWorks } from "@/components/client/HowItWorks";
-import { Industries } from "@/components/client/Industries";
-import { WhyAfrica } from "@/components/client/WhyAfrica";
+import { FeaturesSection } from "@/components/client/FeaturesSection";
+import { SolutionSection } from "@/components/client/SolutionSection";
+import { Testimonials } from "@/components/client/Testimonials";
+import { ContactForm } from "@/components/client/ContactForm";
 import { Footer } from "@/components/client/Footer";
 
 const Index = () => {
@@ -16,9 +17,18 @@ const Index = () => {
           <SplineBackground />
           <Hero />
         </div>
-        <HowItWorks />
-        <Industries />
-        <WhyAfrica />
+        
+        {/* Features Section */}
+        <FeaturesSection />
+        
+        {/* Solution Section */}
+        <SolutionSection />
+        
+        {/* Testimonials Section */}
+        <Testimonials />
+        
+        {/* Contact Form Section */}
+        <ContactForm />
       </main>
       <Footer />
     </div>
