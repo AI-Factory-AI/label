@@ -1,27 +1,29 @@
- import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/ThemeToggle"
-import { Menu, X, ChevronDown } from "lucide-react"
-import { useState, useEffect, useRef } from "react"
-import { Link } from "react-router-dom"
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsMoreDropdownOpen(false)
+        setIsMoreDropdownOpen(false);
       }
     }
 
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const navigationItems = [
     { label: "Products", href: "/products" },
@@ -29,7 +31,7 @@ export function Header() {
     { label: "Government", href: "/government" },
     { label: "Customers", href: "/customers" },
     { label: "Learn", href: "/learn" },
-  ]
+  ];
 
   const moreDropdownItems = [
     { label: "About", href: "/about" },
@@ -37,134 +39,143 @@ export function Header() {
     { label: "API Reference", href: "/api" },
     { label: "Support", href: "/support" },
     { label: "Blog", href: "/learn" },
-  ]
+  ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-lg border-b border-border">
-      <div className="w-full px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2 flex-shrink-0">
-          <img 
-            src="https://res.cloudinary.com/ecosheane/image/upload/v1754217265/lable_z2geih.png" 
-            alt="Labilo Logo" 
-            className="h-6 sm:h-8 w-auto"
-          />
-          <span className="text-lg sm:text-xl font-bold text-foreground">Labilo</span>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-          {navigationItems.map((item) => (
-            <Link
-              key={item.label}
-              to={item.href}
-              className="text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base"
-            >
-              {item.label}
-            </Link>
-          ))}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between py-0">
+          <Link to="/" className="flex items-center gap-2">
+            <img
+              src="/logo.png"
+              alt="Datos"
+              className="md:h-20 h-18 w-auto"
+              loading="eager"
+              width="120"
+              height="40"
+            />
+          </Link>
           
-          {/* More Dropdown */}
-          <div className="relative" ref={dropdownRef}>
-            <button
-              onClick={() => setIsMoreDropdownOpen(!isMoreDropdownOpen)}
-              className="flex items-center space-x-1 text-muted-foreground hover:text-foreground transition-colors text-sm xl:text-base"
-            >
-              <span>More</span>
-              <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isMoreDropdownOpen ? 'rotate-180' : ''}`} />
-            </button>
-            
-            {isMoreDropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg py-2 z-50">
-                {moreDropdownItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    to={item.href}
-                    className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-                    onClick={() => setIsMoreDropdownOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-        </nav>
-
-        {/* Desktop Actions */}
-        <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
-          <ThemeToggle />
-          <Link to="/login">
-            <Button variant="ghost" size="sm" className="text-sm">
-              Login
-            </Button>
-          </Link>
-          <Link to="/signup">
-            <Button size="sm" className="bg-gradient-primary hover:bg-primary/90 text-sm">
-              Get Started
-            </Button>
-          </Link>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="lg:hidden flex items-center space-x-2 flex-shrink-0">
-          <ThemeToggle />
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 h-9 w-9 flex items-center justify-center"
-          >
-            {isMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-          </Button>
-        </div>
-      </div>
-
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="lg:hidden bg-background/95 backdrop-blur-lg border-b border-border">
-          <nav className="w-full px-3 sm:px-6 lg:px-8 py-6 space-y-4">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm text-gray-900">
             {navigationItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.href}
-                className="block text-muted-foreground hover:text-foreground transition-colors py-2 text-base font-medium"
-                onClick={() => setIsMenuOpen(false)}
+                className="hover:text-gray-700 transition font-geist"
               >
                 {item.label}
               </Link>
             ))}
             
-            {/* Mobile More Section */}
-            <div className="border-t border-border pt-4 mt-4">
-              <div className="text-sm font-medium text-muted-foreground mb-3">More</div>
-              {moreDropdownItems.map((item) => (
+            {/* More Dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setIsMoreDropdownOpen(!isMoreDropdownOpen)}
+                className="flex items-center gap-1 hover:text-gray-700 transition font-geist"
+              >
+                <span>More</span>
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isMoreDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isMoreDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50">
+                  {moreDropdownItems.map((item) => (
+                    <Link
+                      key={item.label}
+                      to={item.href}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition font-geist"
+                      onClick={() => setIsMoreDropdownOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          </nav>
+
+          {/* Desktop Actions */}
+          <div className="hidden lg:flex items-center gap-3">
+            <Link
+              to="/login"
+              className="text-sm text-gray-900 hover:text-gray-700 transition font-geist px-4 py-2"
+            >
+              Login
+            </Link>
+            <Link
+              to="/signup"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-500 px-4 py-2.5 text-sm font-medium hover:bg-blue-600 transition font-geist text-white"
+            >
+              Get Started
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMenu}
+            className="lg:hidden inline-flex items-center justify-center w-10 h-10 text-gray-900 hover:bg-gray-100 rounded-lg transition z-30 relative"
+            aria-label="Toggle menu"
+            type="button"
+          >
+            {isMenuOpen ? (
+              <X className="w-6 h-6 text-gray-900" />
+            ) : (
+              <Menu className="w-6 h-6 text-gray-900" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="lg:hidden border-t border-gray-200 py-4 animate-in slide-in-from-top">
+            <nav className="flex flex-col gap-4">
+              {navigationItems.map((item) => (
                 <Link
                   key={item.label}
                   to={item.href}
-                  className="block py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
+                  className="text-sm text-gray-900 hover:text-gray-700 transition font-geist py-2"
+                  onClick={toggleMenu}
                 >
                   {item.label}
                 </Link>
               ))}
-            </div>
-            
-            <div className="pt-6 space-y-3 border-t border-border mt-4">
-              <Link to="/login">
-                <Button variant="ghost" size="sm" className="w-full justify-start text-base">
+              
+              {/* Mobile More Section */}
+              <div className="border-t border-gray-200 pt-4 mt-2">
+                <div className="text-sm font-medium text-gray-500 mb-3 font-geist">More</div>
+                {moreDropdownItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className="block py-2 text-sm text-gray-700 hover:text-gray-900 transition font-geist"
+                    onClick={toggleMenu}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+              
+              <div className="pt-4 space-y-3 border-t border-gray-200 mt-2">
+                <Link
+                  to="/login"
+                  className="block text-sm text-gray-900 hover:text-gray-700 transition font-geist py-2"
+                  onClick={toggleMenu}
+                >
                   Login
-                </Button>
-              </Link>
-              <Link to="/signup">
-                <Button size="sm" className="w-full bg-gradient-primary hover:bg-primary/90 text-base">
+                </Link>
+                <Link
+                  to="/signup"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-500 px-4 py-2.5 text-sm font-medium hover:bg-blue-600 transition font-geist text-white w-full"
+                  onClick={toggleMenu}
+                >
                   Get Started
-                </Button>
-              </Link>
-            </div>
-          </nav>
-        </div>
-      )}
+                </Link>
+              </div>
+            </nav>
+          </div>
+        )}
+      </div>
     </header>
-  )
-} 
+  );
+}

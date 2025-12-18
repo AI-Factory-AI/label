@@ -1,65 +1,42 @@
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex mt-20 items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background/95 to-primary/5">
-      {/* Static Background Shapes */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
-      
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center space-y-8">
-          <div className="space-y-6">
-            <Badge variant="outline" className="border-primary/20 bg-primary/5 text-primary px-4 py-2">
-              Trusted by Leading AI Companies
-            </Badge>
-            
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light leading-tight">
-              <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
-                African AI Data Labeling
-              </span>
-              <br />
-              <span className="text-foreground">Factory</span>
-            </h1>
-            
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Grow your AI projects with premium data labeling services powered by Africa's talent.
-            </p>
-          </div>
+    <div className="relative min-h-screen w-full flex items-center pt-16 sm:pt-20 z-20">
+      <div className="relative z-20 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-left">
+        {/* Social Proof */}
+        <div className="mb-6 sm:mb-8">
+          <p className="text-xs sm:text-sm text-gray-600 font-geist">TRUSTED BY 50,000+ EXPERT LABELERS ACROSS 54 COUNTRIES</p>
+        </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/request-quota">
-              <Button size="lg" className="bg-gradient-primary hover:bg-primary/90 text-lg px-8 py-4">
-                Request a Quote
-              </Button>
-            </Link>
-            <Link to="/signup">
-              <Button size="lg" variant="outline" className="text-lg px-8 py-4 border-primary/20 hover:bg-primary/5">
-                Get Started
-              </Button>
-            </Link>
-          </div>
+        {/* Main Headline */}
+        <h1 className="text-[10vw] sm:text-[8vw] md:text-[7vw] lg:text-[6vw] xl:text-[5.5vw] leading-[0.95] sm:leading-[0.9] font-semibold tracking-tighter font-geist text-black">
+          <span className="block">African AI <span className="text-blue-500">Data Labeling</span></span>
+          <span className="block text-black/60 text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[4.5vw] xl:text-[4vw]">Factory for Your AI Projects</span>
+        </h1>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-16">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-light text-primary mb-2">50,000+</div>
-              <div className="text-sm text-muted-foreground">Expert Labelers</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-light text-primary mb-2">54</div>
-              <div className="text-sm text-muted-foreground">Countries</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-light text-primary mb-2">99.5%</div>
-              <div className="text-sm text-muted-foreground">Accuracy Rate</div>
-            </div>
-          </div>
+        {/* Supporting Copy */}
+        <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-black/70 max-w-3xl font-geist">
+          Grow your AI projects with premium data labeling services powered by Africa's talent. 50,000+ expert labelers across 54 countries with 99.5% accuracy rate.
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
+          <Link
+            to="/signup"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-500 text-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold hover:bg-blue-600 transition-all duration-200 font-geist shadow-lg hover:shadow-xl"
+          >
+            Get Started! <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+          </Link>
+          <Link
+            to="/about"
+            className="inline-flex items-center justify-center sm:justify-start text-sm sm:text-base font-medium text-black hover:text-black/80 transition font-geist border-b-2 border-black/30 hover:border-black pb-1"
+          >
+            Learn More
+          </Link>
         </div>
       </div>
-    </section>
-  )
-} 
+    </div>
+  );
+}

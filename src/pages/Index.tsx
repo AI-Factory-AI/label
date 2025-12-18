@@ -1,6 +1,6 @@
 import { Header } from "@/components/client/Header";
 import { Hero } from "@/components/client/Hero";
-import { Partners } from "@/components/client/Partners";
+import { SplineBackground } from "@/components/client/SplineBackground";
 import { HowItWorks } from "@/components/client/HowItWorks";
 import { Industries } from "@/components/client/Industries";
 import { WhyAfrica } from "@/components/client/WhyAfrica";
@@ -11,8 +11,11 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        <Hero />
-        <Partners />
+        {/* Hero Section with Spline Background */}
+        <div className="relative min-h-screen w-full" style={{ backgroundColor: '#fff' }}>
+          <SplineBackground />
+          <Hero />
+        </div>
         <HowItWorks />
         <Industries />
         <WhyAfrica />

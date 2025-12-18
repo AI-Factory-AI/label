@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/ThemeToggle"
 import { Menu, X, User, Bell, Search, Settings, LogOut } from "lucide-react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
@@ -31,7 +30,6 @@ export function ClientHeader() {
               className="pl-10 w-64 border-0 bg-muted/50 focus:bg-background" 
             />
           </div>
-          <ThemeToggle />
           <Button variant="ghost" size="sm" className="text-sm relative">
             <Bell className="h-4 w-4" />
             <Badge className="absolute -top-1 -right-1 h-5 w-5 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">5</Badge>
@@ -67,7 +65,6 @@ export function ClientHeader() {
 
         {/* Mobile Menu Button */}
         <div className="lg:hidden flex items-center space-x-2 flex-shrink-0">
-          <ThemeToggle />
           <Button
             variant="ghost"
             size="sm"

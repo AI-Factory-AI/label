@@ -65,11 +65,11 @@ export const Partners = () => {
   }, []);
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-50 to-white dark:from-background dark:to-muted/30">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Company Logos */}
         <div className="text-center">
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-muted-foreground mb-6 sm:mb-8 font-medium">TRUSTED BY LEADING AI COMPANIES</p>
+          <p className="text-xs sm:text-sm text-gray-600 mb-6 sm:mb-8 font-medium tracking-wider">TRUSTED BY LEADING AI COMPANIES</p>
           <div className="relative overflow-hidden" ref={containerRef}>
             <div 
               className="flex items-center gap-4 sm:gap-6 lg:gap-8 xl:gap-10 opacity-70"
@@ -81,32 +81,30 @@ export const Partners = () => {
               {/* First set of logos */}
               {logos.map((logo, index) => (
                 <div key={`first-${index}`} className="hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                  <div className="w-24 h-14 sm:w-32 sm:h-16 lg:w-36 lg:h-20 flex items-center justify-center bg-transparent border border-gray-500 dark:border-border rounded-full p-2 sm:p-3 lg:p-4 flex-shrink-0">
-                    <div className="relative w-full h-full">
-                      <img
-                        src={logo.src}
-                        alt={logo.alt}
-                        width={logo.width}
-                        height={logo.height}
-                        className="max-w-full max-h-full object-contain brightness-0 saturate-100 dark:brightness-0 dark:invert"
-                      />
-                    </div>
+                  <div className="w-24 h-14 sm:w-32 sm:h-16 lg:w-36 lg:h-20 flex items-center justify-center bg-gray-100 border border-gray-300 rounded-full p-2 sm:p-3 lg:p-4 flex-shrink-0">
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      width={logo.width}
+                      height={logo.height}
+                      className="w-full h-full object-contain"
+                      style={{ filter: 'grayscale(100%) contrast(1.2)' }}
+                    />
                   </div>
                 </div>
               ))}
               {/* Duplicate set for seamless loop */}
               {logos.map((logo, index) => (
                 <div key={`second-${index}`} className="hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                  <div className="w-24 h-14 sm:w-32 sm:h-16 lg:w-36 lg:h-20 flex items-center justify-center bg-transparent border border-gray-500 dark:border-border rounded-full p-2 sm:p-3 lg:p-4 flex-shrink-0">
-                    <div className="relative w-full h-full">
-                      <img
-                        src={logo.src}
-                        alt={logo.alt}
-                        width={logo.width}
-                        height={logo.height}
-                        className="max-w-full max-h-full object-contain brightness-0 saturate-100 dark:brightness-0 dark:invert"
-                      />
-                    </div>
+                  <div className="w-24 h-14 sm:w-32 sm:h-16 lg:w-36 lg:h-20 flex items-center justify-center bg-gray-100 border border-gray-300 rounded-full p-2 sm:p-3 lg:p-4 flex-shrink-0">
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      width={logo.width}
+                      height={logo.height}
+                      className="w-full h-full object-contain"
+                      style={{ filter: 'grayscale(100%) contrast(1.2)' }}
+                    />
                   </div>
                 </div>
               ))}
