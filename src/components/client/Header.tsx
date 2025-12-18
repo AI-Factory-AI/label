@@ -26,6 +26,7 @@ export function Header() {
   }, []);
 
   const navigationItems = [
+    { label: "Home", href: "/" },
     { label: "Products", href: "/products" },
     { label: "Enterprise", href: "/enterprise" },
     { label: "Government", href: "/government" },
