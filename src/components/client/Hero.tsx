@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function Hero() {
   return (
-    <div className="relative min-h-screen w-full flex items-center pt-20 sm:pt-24 md:pt-20 lg:pt-20 z-20">
+    <div className="relative min-h-screen w-full flex items-center pt-12 sm:pt-24 md:pt-20 lg:pt-20 z-20">
       <div className="relative z-20 w-full mx-auto max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8 text-left">
         {/* Social Proof */}
         <div className="mb-3 sm:mb-4">
