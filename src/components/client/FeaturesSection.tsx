@@ -1,7 +1,7 @@
 export function FeaturesSection() {
   return (
-    <div id="features" className="bg-white py-16 sm:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div id="features" className="bg-white py-12 sm:py-16 md:py-20 lg:py-24">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end border-gray-200 border-b pb-8 gap-x-6 gap-y-6 items-center justify-center">
           <div className="max-w-2xl text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-gray-900 tracking-tight font-geist mb-4 sm:mb-6 text-center px-4">

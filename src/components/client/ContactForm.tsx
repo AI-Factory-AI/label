@@ -29,12 +29,12 @@ export function ContactForm() {
   };
 
   return (
-    <div id="contact" className="bg-white py-16 sm:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div id="contact" className="bg-white py-12 sm:py-16 md:py-20 lg:py-24">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
           {/* Left Side - Contact Info */}
           <div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 tracking-tight font-geist mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-gray-900 tracking-tight font-geist mb-4 sm:mb-6">
               Get In Touch
             </h2>
             <p className="text-base sm:text-lg text-gray-600 font-geist mb-6 sm:mb-8">

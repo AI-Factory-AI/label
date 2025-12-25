@@ -66,18 +66,18 @@ export function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="sm:py-24 pt-16 pb-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-8">
+    <section id="testimonials" className="pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24 bg-white">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 sm:mb-8">
         <div className="space-y-1">
           <p className="text-xs uppercase text-gray-500 tracking-widest font-geist">
             What clients say
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-geist tracking-tighter font-medium text-gray-900">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-geist tracking-tighter font-medium text-gray-900">
             Testimonials
           </h2>
         </div>
-        <div className="hidden sm:flex items-center gap-2 text-gray-400">
+        <div className="hidden sm:flex items-center gap-2 text-gray-400 flex-shrink-0">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
             <path
@@ -100,7 +100,7 @@ export function Testimonials() {
             {testimonialsRow1.map((testimonial, index) => (
               <article
                 key={`row1-${index}`}
-                className="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-gray-200 bg-gray-50 p-5"
+                className="shrink-0 w-[260px] xs:w-[280px] sm:w-[320px] md:w-[380px] lg:w-[420px] rounded-xl sm:rounded-2xl border border-gray-200 bg-gray-50 p-4 sm:p-5"
               >
                 <div className="flex items-center gap-3">
                   <div>
@@ -135,7 +135,7 @@ export function Testimonials() {
             {testimonialsRow2.map((testimonial, index) => (
               <article
                 key={`row2-${index}`}
-                className="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-gray-200 bg-gray-50 p-5"
+                className="shrink-0 w-[260px] xs:w-[280px] sm:w-[320px] md:w-[380px] lg:w-[420px] rounded-xl sm:rounded-2xl border border-gray-200 bg-gray-50 p-4 sm:p-5"
               >
                 <div className="flex items-center gap-3">
                   <div>

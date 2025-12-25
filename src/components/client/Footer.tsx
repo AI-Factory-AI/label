@@ -6,7 +6,7 @@ export function Footer() {
 
   return (
     <div className="bg-gray-900 mt-8 sm:mt-10 w-full">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-10 sm:py-12 md:py-14 lg:py-16">
         <div className="relative overflow-hidden text-white p-4 sm:p-6 md:p-8">
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_20%_-20%,rgba(255,255,255,0.06),transparent_60%)]"></div>
@@ -15,7 +15,7 @@ export function Footer() {
           </div>
 
           <div className="relative">
-            <h2 className="text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[7vw] xl:text-[9vw] leading-[0.95] sm:leading-[0.9] font-semibold tracking-tighter font-geist">
+            <h2 className="text-[10vw] sm:text-[9vw] md:text-[8vw] lg:text-[7vw] xl:text-[6vw] leading-[0.95] sm:leading-[0.9] font-semibold tracking-tighter font-geist">
               <span className="block">Ready to scale</span>
               <span className="block text-white/60">your AI projects</span>
             </h2>

@@ -3,10 +3,10 @@ import { ArrowRight } from "lucide-react";
 
 export function Hero() {
   return (
-    <div className="relative min-h-screen w-full flex items-center pt-16 sm:pt-20 z-20">
-      <div className="relative z-20 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-left">
+    <div className="relative min-h-screen w-full flex items-center pt-20 sm:pt-24 md:pt-20 lg:pt-20 z-20">
+      <div className="relative z-20 w-full mx-auto max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8 text-left">
         {/* Social Proof */}
-        <div className="mb-6 sm:mb-8">
+        <div className="mb-3 sm:mb-4">
           <p className="text-xs sm:text-sm text-gray-600 font-geist">TRUSTED BY 50,000+ EXPERT LABELERS ACROSS 54 COUNTRIES</p>
         </div>
 
@@ -22,16 +22,16 @@ export function Hero() {
         </p>
 
         {/* CTA Buttons */}
-        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 sm:gap-4">
           <Link
             to="/signup"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-500 text-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold hover:bg-blue-600 transition-all duration-200 font-geist shadow-lg hover:shadow-xl"
+            className="inline-flex items-center justify-start sm:justify-center gap-2 rounded-full bg-blue-500 text-white px-5 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold hover:bg-blue-600 transition-all duration-200 font-geist shadow-lg hover:shadow-xl w-auto"
           >
             Get Started! <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
           </Link>
           <Link
             to="/about"
-            className="inline-flex items-center justify-center sm:justify-start text-sm sm:text-base font-medium text-black hover:text-black/80 transition font-geist border-b-2 border-black/30 hover:border-black pb-1"
+            className="inline-flex items-center justify-start text-sm sm:text-base font-medium text-black hover:text-black/80 transition font-geist border-b-2 border-black/30 hover:border-black pb-1 w-auto"
           >
             Learn More
           </Link>
